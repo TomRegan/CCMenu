@@ -2,6 +2,10 @@
 #import "CCMConnection.h"
 #import "CCMServerStatusReader.h"
 
+@interface CCMConnection()
+- (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
+- (NSURLConnection *)newAsynchronousRequest:(NSURLRequest *)request;
+@end
 
 @implementation CCMConnection
 

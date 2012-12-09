@@ -81,6 +81,12 @@
     STAssertEqualObjects([[recordedInfos objectAtIndex:0] valueForKey:@"name"], @"connectfour", @"Should have called delegate with info object corresponding to response");
 }
 
+-(void)testConnectionConformsToProtocol
+{
+    BOOL conformsToProtocol = [connection conformsToProtocol:@protocol(NSURLConnectionDelegate)];
+    STAssertTrue(conformsToProtocol, @"CCMConnection conforms to NSURLConnectionDelegate");
+}
+
 - (void)connection:(CCMConnection *)connection didReceiveServerStatus:(NSArray *)projectInfoList
 {
     recordedInfos = [[projectInfoList retain] autorelease];
