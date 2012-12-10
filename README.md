@@ -27,13 +27,21 @@ the size of the list panes, and sorted the project list.
 
 ### Larger dialogs
 
+**Old...**
+
 ![Old](https://farm9.staticflickr.com/8486/8261759979_ffc550f959.jpg)
+
+**New...**
 
 ![New](https://farm9.staticflickr.com/8483/8261732387_5199f5fecc.jpg)
 
 ### Filter pipelines in the server view
 
+**Old...**
+
 ![Old](https://farm9.staticflickr.com/8074/8262827590_89bc30e53a.jpg)
+
+**New...**
 
 ![New](https://farm9.staticflickr.com/8067/8262800328_c444fe8963.jpg)
 
