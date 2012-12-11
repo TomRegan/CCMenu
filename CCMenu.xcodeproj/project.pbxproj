@@ -17,14 +17,11 @@
 		0306185113DD554F003B065E /* CCMBuildTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306184F13DD554F003B065E /* CCMBuildTimer.m */; };
 		0328D380135C191500D35055 /* EDCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37C135C191500D35055 /* EDCommon.framework */; };
 		0328D381135C191500D35055 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37D135C191500D35055 /* Growl.framework */; };
-		0328D383135C191500D35055 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; };
 		0328D384135C192400D35055 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37E135C191500D35055 /* OCMock.framework */; };
-		0328D385135C192800D35055 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; };
 		0328D386135C192C00D35055 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37D135C191500D35055 /* Growl.framework */; };
 		0328D387135C193000D35055 /* EDCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37C135C191500D35055 /* EDCommon.framework */; };
 		0328D388135C1A2E00D35055 /* EDCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0328D37C135C191500D35055 /* EDCommon.framework */; };
 		0328D389135C1A3500D35055 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0328D37D135C191500D35055 /* Growl.framework */; };
-		0328D38A135C1A3A00D35055 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; };
 		032E6ECB140411A100DBA2E0 /* CCMRelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 032E6ECA140411A100DBA2E0 /* CCMRelativeDateTransformer.m */; };
 		032E6ECC140411A100DBA2E0 /* CCMRelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 032E6ECA140411A100DBA2E0 /* CCMRelativeDateTransformer.m */; };
 		032E6ECF140416C900DBA2E0 /* CCMTimeIntervalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 032E6ECE140416C900DBA2E0 /* CCMTimeIntervalTransformer.m */; };
@@ -108,6 +105,8 @@
 		03DE25A0146AB86C00521846 /* CCMSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DE259F146AB86C00521846 /* CCMSoundPlayer.m */; };
 		03E288C3144F045E0026DAC4 /* NSObject+CCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */; };
 		03E288C4144F045E0026DAC4 /* NSObject+CCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */; };
+		E240406D16775A7F0082ED7A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E240406C16775A7F0082ED7A /* Sparkle.framework */; };
+		E240406E16775A9C0082ED7A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E240406C16775A7F0082ED7A /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,11 +124,11 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Frameworks;
-			dstSubfolderSpec = 1;
+			dstSubfolderSpec = 10;
 			files = (
 				0328D388135C1A2E00D35055 /* EDCommon.framework in CopyFiles */,
 				0328D389135C1A3500D35055 /* Growl.framework in CopyFiles */,
-				0328D38A135C1A3A00D35055 /* Sparkle.framework in CopyFiles */,
+				E240406E16775A9C0082ED7A /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +147,6 @@
 		0328D37C135C191500D35055 /* EDCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EDCommon.framework; path = Frameworks/EDCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0328D37D135C191500D35055 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0328D37E135C191500D35055 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Frameworks/OCMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0328D37F135C191500D35055 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		032E6EC9140411A100DBA2E0 /* CCMRelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMRelativeDateTransformer.h; sourceTree = "<group>"; };
 		032E6ECA140411A100DBA2E0 /* CCMRelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMRelativeDateTransformer.m; sourceTree = "<group>"; };
 		032E6ECD140416C900DBA2E0 /* CCMTimeIntervalTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMTimeIntervalTransformer.h; sourceTree = "<group>"; };
@@ -254,6 +252,7 @@
 		03DE259F146AB86C00521846 /* CCMSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMSoundPlayer.m; sourceTree = "<group>"; };
 		03E288C1144F045E0026DAC4 /* NSObject+CCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CCMAdditions.h"; sourceTree = "<group>"; };
 		03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CCMAdditions.m"; sourceTree = "<group>"; };
+		E240406C16775A7F0082ED7A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,7 +263,7 @@
 				038ABE1E134F11090053F0D1 /* Cocoa.framework in Frameworks */,
 				0328D380135C191500D35055 /* EDCommon.framework in Frameworks */,
 				0328D381135C191500D35055 /* Growl.framework in Frameworks */,
-				0328D383135C191500D35055 /* Sparkle.framework in Frameworks */,
+				E240406D16775A7F0082ED7A /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +273,6 @@
 			files = (
 				038ABE3B134F11090053F0D1 /* Cocoa.framework in Frameworks */,
 				0328D384135C192400D35055 /* OCMock.framework in Frameworks */,
-				0328D385135C192800D35055 /* Sparkle.framework in Frameworks */,
 				0328D386135C192C00D35055 /* Growl.framework in Frameworks */,
 				0328D387135C193000D35055 /* EDCommon.framework in Frameworks */,
 			);
@@ -475,10 +473,10 @@
 		038ABE1C134F11090053F0D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E240406C16775A7F0082ED7A /* Sparkle.framework */,
 				038ABE1D134F11090053F0D1 /* Cocoa.framework */,
 				0328D37C135C191500D35055 /* EDCommon.framework */,
 				0328D37D135C191500D35055 /* Growl.framework */,
-				0328D37F135C191500D35055 /* Sparkle.framework */,
 				0328D37E135C191500D35055 /* OCMock.framework */,
 				038ABE1F134F11090053F0D1 /* Other Frameworks */,
 			);
@@ -912,6 +910,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${TARGET_BUILD_DIR}/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -935,6 +934,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${BUILT_PRODUCTS_DIR}/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
