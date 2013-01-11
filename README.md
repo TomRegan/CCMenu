@@ -33,7 +33,7 @@ the size of the list panes, and sorted the project list.
 
 **New...**
 
-![New](https://farm9.staticflickr.com/8483/8261732387_5199f5fecc.jpg)
+![New](https://farm9.staticflickr.com/8483/8261732387_b9abe7714f.jpg)
 
 ### Filter pipelines in the server view
 
