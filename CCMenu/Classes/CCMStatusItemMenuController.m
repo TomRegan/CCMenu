@@ -9,6 +9,8 @@
 
 @interface NSStatusItem(MyTitleFormatting)
 
+
+
 - (void)setFormattedTitle:(NSString *)aTitle;
 
 @end
@@ -102,28 +104,42 @@
 }
 
 - (void)setupMenu:(NSMenu *)menu forProjects:(NSArray *)projectList
-{	
-	int index = 0;
-    for(CCMProject *project in [projectList sortedArrayByComparingAttribute:@"name"])
+{
+    static int projectStartIndex; /* there's probably a more OO way to do this, so FIXME */
+    if (!projectStartIndex) {
+        projectStartIndex = [menu.itemArray count] - 1;
+    }
+	int index = projectStartIndex;
+    
+    NSArray *projects = [projectList sortedArrayByComparingAttribute:@"name"];
+
+    /* this item is a hidden separator used as a marker */
+    [menu itemAtIndex: index - 1].hidden = (projects.count == 0 ? YES : NO);
+
+    for(CCMProject *project in projects)
     {
         NSMenuItem *menuItem = [[menu itemArray] objectAtIndex:index];
-        while(([menuItem isSeparatorItem] == NO) && ([[project name] compare:[menuItem title]] == NSOrderedDescending))
-        {
+
+        while(([menuItem isSeparatorItem] == NO) && ([project.name compare:menuItem.title] == NSOrderedDescending))
+        {   /* delete from the front of the list; if at some point an NSMenuItem.title matches the project.name,
+             * (i.e. the project was previously selected), re-use it by moving it to the correct position in the
+             * list instead of creating a new NSMenuItem object.
+             */
             [menu removeItemAtIndex:index];
             menuItem = [[menu itemArray] objectAtIndex:index];
         }
         if([menuItem representedObject] != project)
-        {
+        {   /* do initialization of menu item */
             menuItem = [menu insertItemWithTitle:[project name] action:@selector(openProject:) keyEquivalent:@"" atIndex:index];
             [menuItem setTarget:self];
             [menuItem setRepresentedObject:project];
-        }
+        }   /* update the build status image */
 		NSImage *image = [imageFactory imageForActivity:[[project status] activity] lastBuildStatus:[[project status] lastBuildStatus]];
 		[menuItem setImage:[imageFactory convertForMenuUse:image]];
         index += 1;
     }
     while([[[menu itemArray] objectAtIndex:index] isSeparatorItem] == NO)
-    {
+    {   /* remove previous selection of projects */
         [menu removeItemAtIndex:index];
     }
 }
