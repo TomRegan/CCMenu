@@ -17,15 +17,17 @@ NSString *CCMStillFailingBuild = @"StillFailing";
 
 - (NSString *)buildResultForLastStatus:(NSString *)lastStatus newStatus:(NSString *)newStatus
 {
-	if([lastStatus isEqualToString:CCMSuccessStatus] && [newStatus isEqualToString:CCMSuccessStatus])
-		return CCMSuccessfulBuild;
-	if([lastStatus isEqualToString:CCMSuccessStatus] && [newStatus isEqualToString:CCMFailedStatus])
-		return CCMBrokenBuild;
-	if([lastStatus isEqualToString:CCMFailedStatus] && [newStatus isEqualToString:CCMSuccessStatus])
-		return CCMFixedBuild;
-	if([lastStatus isEqualToString:CCMFailedStatus] && [newStatus isEqualToString:CCMFailedStatus])
-		return CCMStillFailingBuild;
-	return @"";
+    NSString *result = @"";
+	if([lastStatus isEqualToString:CCMSuccessStatus] && [newStatus isEqualToString:CCMSuccessStatus]) {
+        result = CCMSuccessfulBuild;
+    } else if([lastStatus isEqualToString:CCMSuccessStatus] && [newStatus isEqualToString:CCMFailedStatus]) {
+		result = CCMBrokenBuild;
+    } else if([lastStatus isEqualToString:CCMFailedStatus] && [newStatus isEqualToString:CCMSuccessStatus]) {
+		result = CCMFixedBuild;
+	} else if([lastStatus isEqualToString:CCMFailedStatus] && [newStatus isEqualToString:CCMFailedStatus]) {
+        result = CCMStillFailingBuild;
+    }
+	return result;
 }
 
 - (NSDictionary *)completeInfoForProject:(CCMProject *)project withOldStatus:(CCMProjectStatus *)oldStatus
