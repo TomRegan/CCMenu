@@ -3,6 +3,16 @@
 #import "CCMConnectionTest.h"
 #import "CCMConnection.h"
 
+@interface CCMConnection() {
+    
+}
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+- (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
+- (NSURLConnection *)newAsynchronousRequest:(NSURLRequest *)request;
+
+@end
 
 @implementation CCMConnectionTest
 
