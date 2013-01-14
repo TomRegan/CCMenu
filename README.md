@@ -45,6 +45,16 @@ the size of the list panes, and sorted the project list.
 
 ![New](https://farm9.staticflickr.com/8067/8262800328_c444fe8963.jpg)
 
+### Keep menu options above the list of projects
+
+**Old...**
+
+![Old](https://farm9.staticflickr.com/8186/8373456543_8828d79ff2_z.jpg)
+
+**New...**
+
+![New](https://farm9.staticflickr.com/8358/8374528884_b162131664_z.jpg)
+
 ## Future Stuff
 
 Any, all, or maybe none of the following
