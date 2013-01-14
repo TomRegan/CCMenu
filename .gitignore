@@ -1,0 +1,7 @@
+.*
+!.gitignore
+# Macintosh applications
+*.app
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
