@@ -54,7 +54,7 @@
 
 - (void)testCachesMenuImages
 {
-	NSImage *original = [[NSImage alloc] init];
+	NSImage *original = [[[NSImage alloc] init] autorelease];
 	STAssertTrue([original setName:@"testCachesMenuImages"], @"Should have been able to set image name.");
 	NSImage *menu1 = [factory convertForMenuUse:original];
 	STAssertTrue(![[menu1 name] isEqualToString:[original name]], @"Should have used different name.");
