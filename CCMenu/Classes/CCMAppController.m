@@ -5,8 +5,6 @@
 #import "CCMBuildStatusTransformer.h"
 #import "CCMRelativeDateTransformer.h"
 #import "CCMTimeIntervalTransformer.h"
-#import "CCMBuildTimer.h"
-#import "CCMSoundPlayer.h"
 
 
 @implementation CCMAppController
@@ -33,10 +31,10 @@
 
 - (void)startServices
 {
-    CCMBuildTimer *buildTimer = [[CCMBuildTimer alloc] init];
+    buildTimer = [[[CCMBuildTimer alloc] init] autorelease];
     [buildTimer start];
     
-    CCMSoundPlayer *soundPlayer = [[CCMSoundPlayer alloc] init];
+    soundPlayer = [[[CCMSoundPlayer alloc] init] autorelease];
     [soundPlayer start];
 
 	[growlAdaptor start];
