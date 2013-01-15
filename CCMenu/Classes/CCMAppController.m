@@ -31,11 +31,8 @@
 
 - (void)startServices
 {
-    buildTimer = [[[CCMBuildTimer alloc] init] autorelease];
-    [buildTimer start];
-    
-    soundPlayer = [[[CCMSoundPlayer alloc] init] autorelease];
-    [soundPlayer start];
+    [CCMBuildTimer start];
+    [CCMSoundPlayer start];
 
 	[growlAdaptor start];
 

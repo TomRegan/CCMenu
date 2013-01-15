@@ -9,8 +9,6 @@
 
 @interface NSStatusItem(MyTitleFormatting)
 
-
-
 - (void)setFormattedTitle:(NSString *)aTitle;
 
 @end
@@ -105,7 +103,6 @@
 
 - (void)setupMenu:(NSMenu *)menu forProjects:(NSArray *)projectList
 {
-    static int projectStartIndex; /* there's probably a more OO way to do this, so FIXME */
     if (!projectStartIndex) {
         projectStartIndex = [menu.itemArray count] - 1;
     }
@@ -114,7 +111,7 @@
     NSArray *projects = [projectList sortedArrayByComparingAttribute:@"name"];
 
     /* this item is a hidden separator used as a marker */
-    [menu itemAtIndex: index - 1].hidden = (projects.count == 0 ? YES : NO);
+    [menu itemAtIndex: index - 1].hidden = (projects.count == 0);
 
     for(CCMProject *project in projects)
     {
