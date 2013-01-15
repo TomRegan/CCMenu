@@ -5,13 +5,13 @@
 
 @implementation CCMSoundPlayer
 
-- (void)start
++ (void)start
 {
 	[[NSNotificationCenter defaultCenter] 
      addObserver:self selector:@selector(buildComplete:) name:CCMBuildCompleteNotification object:nil];
 }
 
-- (void)buildComplete:(NSNotification *)notification
++ (void)buildComplete:(NSNotification *)notification
 {
     NSString *result = [[notification userInfo] objectForKey:@"buildResult"];
     NSString *defaultName = [NSString stringWithFormat:@"Sound %@", result]; // slightly naughty

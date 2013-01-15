@@ -33,11 +33,8 @@
 
 - (void)startServices
 {
-    CCMBuildTimer *buildTimer = [[CCMBuildTimer alloc] init];
-    [buildTimer start];
-    
-    CCMSoundPlayer *soundPlayer = [[CCMSoundPlayer alloc] init];
-    [soundPlayer start];
+    [CCMBuildTimer start];
+    [CCMSoundPlayer start];
 
 	[growlAdaptor start];
 

@@ -6,8 +6,7 @@
 {
 }
 
-- (void)start;
-
-- (void)buildComplete:(NSNotification *)notification;
++ (void)start;
++ (void)buildComplete:(NSNotification *)notification;
 
 @end
