@@ -12,11 +12,13 @@
 
 	NSStatusItem	*statusItem;
     NSTimer         *timer;
+    
+    @private
+    int             projectStartIndex;
 
 }
 
 - (NSStatusItem *)statusItem;
-
 - (void)displayProjects:(id)sender;
 - (IBAction)openProject:(id)sender;
 

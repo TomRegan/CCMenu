@@ -6,15 +6,15 @@
 
 @implementation CCMBuildTimer
 
-- (void)start
++ (void)start
 {
 	[[NSNotificationCenter defaultCenter] 
-     addObserver:self selector:@selector(buildStart:) name:CCMBuildStartNotification object:nil];
+     addObserver:[self class] selector:@selector(buildStart:) name:CCMBuildStartNotification object:nil];
 	[[NSNotificationCenter defaultCenter] 
-     addObserver:self selector:@selector(buildComplete:) name:CCMBuildCompleteNotification object:nil];
+     addObserver:[self class] selector:@selector(buildComplete:) name:CCMBuildCompleteNotification object:nil];
 }
 
-- (void)buildStart:(NSNotification *)notification
++ (void)buildStart:(NSNotification *)notification
 {
     CCMProject *project = [notification object];
     if([project buildStartTime] != nil)
@@ -22,7 +22,7 @@
     [project setBuildStartTime:[NSDate date]];
 }
 
-- (void)buildComplete:(NSNotification *)notification
++ (void)buildComplete:(NSNotification *)notification
 {
     CCMProject *project = [notification object];
     NSDate *startTime = [project buildStartTime];
