@@ -13,6 +13,13 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 @implementation CCMPreferencesController
 
+- (void)messagesMenuItemSelected:(id)sender
+{
+    if ([sender isKindOfClass:[NSPopUpButton class]]) {
+        NSLog(@"index %i", [sender indexOfSelectedItem]);
+    }
+}
+
 - (void)showWindow:(id)sender
 {
 	if(preferencesWindow == nil)

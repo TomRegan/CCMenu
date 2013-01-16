@@ -39,6 +39,8 @@
 - (IBAction)chooseProjects:(id)sender;
 - (IBAction)closeAddProjectsSheet:(id)sender;
 
+- (IBAction)messagesMenuItemSelected:(id)sender;
+
 - (IBAction)removeProjects:(id)sender;
 
 - (IBAction)switchPreferencesPane:(id)sender;
