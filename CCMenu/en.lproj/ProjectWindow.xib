@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.SystemVersion">12C3006</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2843</string>
+			<string key="NS.object.0">2844</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSArrayController</string>
@@ -67,26 +67,24 @@
 										<object class="NSTableView" id="390767855">
 											<reference key="NSNextResponder" ref="351465691"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrameSize">{957, 231}</string>
+											<string key="NSFrameSize">{957, 246}</string>
 											<reference key="NSSuperview" ref="351465691"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="552714068"/>
 											<bool key="NSEnabled">YES</bool>
+											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="279313293">
 												<reference key="NSNextResponder" ref="552714068"/>
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{957, 17}</string>
 												<reference key="NSSuperview" ref="552714068"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="556222765"/>
 												<reference key="NSTableView" ref="390767855"/>
 											</object>
 											<object class="_NSCornerView" key="NSCornerView" id="556222765">
-												<reference key="NSNextResponder" ref="148499905"/>
+												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{732, 0}, {16, 17}}</string>
-												<reference key="NSSuperview" ref="148499905"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="351465691"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
@@ -394,10 +392,9 @@
 											<int key="NSTableViewGroupRowStyle">1</int>
 										</object>
 									</array>
-									<string key="NSFrame">{{0, 17}, {929, 231}}</string>
-									<string key="NSBounds">{{8, 0}, {929, 231}}</string>
+									<string key="NSFrame">{{0, 17}, {929, 246}}</string>
+									<string key="NSBounds">{{8, 0}, {929, 246}}</string>
 									<reference key="NSSuperview" ref="148499905"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="390767855"/>
 									<reference key="NSDocView" ref="390767855"/>
 									<reference key="NSBGColor" ref="898210728"/>
@@ -408,8 +405,8 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{732, 17}, {15, 231}}</string>
 									<reference key="NSSuperview" ref="148499905"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="258467136"/>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="148499905"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.93902439024390238</double>
@@ -417,10 +414,10 @@
 								<object class="NSScroller" id="258467136">
 									<reference key="NSNextResponder" ref="148499905"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{0, 248}, {929, 15}}</string>
+									<string key="NSFrame">{{0, 247}, {929, 16}}</string>
 									<reference key="NSSuperview" ref="148499905"/>
-									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="148499905"/>
 									<string key="NSAction">_doScroller:</string>
@@ -436,30 +433,28 @@
 									<string key="NSFrameSize">{929, 17}</string>
 									<string key="NSBounds">{{8, 0}, {929, 17}}</string>
 									<reference key="NSSuperview" ref="148499905"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="279313293"/>
 									<reference key="NSDocView" ref="279313293"/>
 									<reference key="NSBGColor" ref="898210728"/>
 									<int key="NScvFlags">4</int>
 								</object>
-								<reference ref="556222765"/>
 							</array>
 							<string key="NSFrameSize">{929, 263}</string>
 							<reference key="NSSuperview" ref="713971993"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="351465691"/>
 							<int key="NSsFlags">133808</int>
 							<reference key="NSVScroller" ref="330478469"/>
 							<reference key="NSHScroller" ref="258467136"/>
 							<reference key="NSContentView" ref="351465691"/>
 							<reference key="NSHeaderClipView" ref="552714068"/>
-							<reference key="NSCornerView" ref="556222765"/>
 							<bytes key="NSScrollAmts">AAAAAAAAAABBoAAAQaAAAA</bytes>
+							<double key="NSMinMagnification">0.25</double>
+							<double key="NSMaxMagnification">4</double>
+							<double key="NSMagnification">1</double>
 						</object>
 					</array>
 					<string key="NSFrameSize">{929, 262}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="148499905"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -997,88 +992,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">136</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">CCMProjectWindowController</string>
-					<string key="superclassName">CCMWindowController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">showWindow:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">showWindow:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">showWindow:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="serverMonitor">CCMServerMonitor</string>
-						<string key="tableView">NSTableView</string>
-						<string key="tableViewController">NSArrayController</string>
-						<string key="window">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="serverMonitor">
-							<string key="name">serverMonitor</string>
-							<string key="candidateClassName">CCMServerMonitor</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tableView">
-							<string key="name">tableView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tableViewController">
-							<string key="name">tableViewController</string>
-							<string key="candidateClassName">NSArrayController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="window">
-							<string key="name">window</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CCMProjectWindowController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CCMServerMonitor</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">defaultsManager</string>
-						<string key="NS.object.0">CCMUserDefaultsManager</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">defaultsManager</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">defaultsManager</string>
-							<string key="candidateClassName">CCMUserDefaultsManager</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CCMServerMonitor.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CCMUserDefaultsManager</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CCMUserDefaultsManager.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CCMWindowController</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CCMWindowController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
