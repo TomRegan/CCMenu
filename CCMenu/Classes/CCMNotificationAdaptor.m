@@ -1,6 +1,7 @@
 
 #import "CCMNotificationAdaptor.h"
 #import "CCMServerMonitor.h"
+#import "CCMPreferencesController.h"
 
 
 struct {
@@ -9,6 +10,7 @@ struct {
 	NSString *description;
 } notificationDescriptions[4];
 
+NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 
 @implementation CCMNotificationAdaptor
 
@@ -29,7 +31,11 @@ struct {
 	notificationDescriptions[3].key = CCMFixedBuild;
 	notificationDescriptions[3].name = NSLocalizedString(@"Fixed build", "Growl notification for successful build");
 	notificationDescriptions[3].description = NSLocalizedString(@"Recent checkins have fixed the build.", "For Growl notificiation");
-    
+}
+
+- (void)setDefaultsManager:(CCMUserDefaultsManager *)manager
+{
+	defaultsManager = manager;
 }
 
 - (NSDictionary *)registrationDictionaryForGrowl
@@ -42,30 +48,36 @@ struct {
 
 - (void)start
 {
+    selectedNotificationAdapter = [defaultsManager notificationService];
+    
     isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
     if (!isUserNotificationAvailable) {
         [GrowlApplicationBridge setGrowlDelegate:(id)self];
     }
 	[[NSNotificationCenter defaultCenter]
-		addObserver:self selector:@selector(buildComplete:) name:CCMBuildCompleteNotification object:nil];
+		addObserver:self selector:@selector(buildComplete:)
+        name:CCMBuildCompleteNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(notificationServiceChanged:)
+        name:CCMNotificationAdapterChanged object:nil];
 }
 
-- (void)sendUserNotification:(int)i aboutProject:(NSString*)projectName
+- (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
     NSUserNotification *notification = [[[NSUserNotification alloc] init] autorelease];
-    [notification setTitle:notificationDescriptions[i].name];
-    [notification setSubtitle:projectName];
-    [notification setInformativeText:notificationDescriptions[i].description];
+    [notification setTitle:title];
+    [notification setSubtitle:subject];
+    [notification setInformativeText:description];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 
-- (void)sendGrowlNotification:(int)i aboutProject:(NSString *)projectName
+- (void)sendGrowlNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
     [GrowlApplicationBridge 	
-     notifyWithTitle:[NSString stringWithFormat:@"%@: %@", projectName, notificationDescriptions[i].name]
-     description:notificationDescriptions[i].description
-     notificationName:notificationDescriptions[i].name
+     notifyWithTitle:[NSString stringWithFormat:@"%@: %@", subject, title]
+     description:description
+     notificationName:title
      iconData:nil
      priority:0
      isSticky:NO
@@ -74,25 +86,34 @@ struct {
 
 - (void)buildComplete:(NSNotification *)notification
 {
-	NSString *projectName = [[notification object] name];
-	NSString *buildResult = [[notification userInfo] objectForKey:@"buildResult"];
+    if (selectedNotificationAdapter == None) {
+        return;
+    }
 
+    NSString *projectName = [[notification object] name];
+    NSString *buildResult = [[notification userInfo] objectForKey:@"buildResult"];
 	for(int i = 0; notificationDescriptions[i].key != nil; i++)
 	{
 		if([buildResult isEqualToString:notificationDescriptions[i].key])
 		{
-            /* TODO:
-             * I don't like indexing into a struct; it doesn't seem very
-             * good in terms of type-semantics.
-             */
-            if (isUserNotificationAvailable) {
-                [self sendUserNotification:i aboutProject:projectName];
-            } else {
-                [self sendGrowlNotification:i aboutProject:projectName];
+            if (isUserNotificationAvailable && selectedNotificationAdapter == NotificationCenter) {
+                [self sendUserNotification:notificationDescriptions[i].name
+                      withSubject:projectName
+                      andDescription:notificationDescriptions[i].description];
+            } else  if (selectedNotificationAdapter == Growl){
+                [self sendGrowlNotification:notificationDescriptions[i].name
+                      withSubject:projectName
+                      andDescription:notificationDescriptions[i].description];
             }
 			break;
 		}
 	}
+}
+
+
+- (void)notificationServiceChanged:(NSNotification *)notification
+{
+    selectedNotificationAdapter = [notification.object selectedNotificationAdapter];
 }
 
 @end

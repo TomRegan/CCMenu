@@ -8,6 +8,7 @@ NSString *CCMDefaultsProjectEntryNameKey = @"projectName";
 NSString *CCMDefaultsProjectEntryServerUrlKey = @"serverUrl";
 NSString *CCMDefaultsPollIntervalKey = @"PollInterval";
 NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
+NSString *CCMNotificationService = @"NotificationService";
 
 
 @implementation CCMUserDefaultsManager
@@ -16,6 +17,12 @@ NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
 {
 	userDefaults = [NSUserDefaults standardUserDefaults];
     [self convertDefaultsIfNecessary];
+}
+
+- (int)notificationService
+{
+    NSLog(@"in CCMUserDefaultsManager notificationService");
+    return [userDefaults integerForKey:CCMNotificationService];
 }
 
 - (int)pollInterval
