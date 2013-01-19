@@ -31,6 +31,18 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 	notificationDescriptions[3].key = CCMFixedBuild;
 	notificationDescriptions[3].name = NSLocalizedString(@"Fixed build", "Growl notification for successful build");
 	notificationDescriptions[3].description = NSLocalizedString(@"Recent checkins have fixed the build.", "For Growl notificiation");
+    
+    [self registerObservers];
+}
+
++ (void)registerObservers
+{
+    [[NSNotificationCenter defaultCenter]
+        addObserver:self selector:@selector(buildComplete:)
+        name:CCMBuildCompleteNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(notificationServiceChanged:)
+        name:CCMNotificationAdapterChanged object:nil];
 }
 
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager
@@ -54,12 +66,6 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
     if (!isUserNotificationAvailable) {
         [GrowlApplicationBridge setGrowlDelegate:(id)self];
     }
-	[[NSNotificationCenter defaultCenter]
-		addObserver:self selector:@selector(buildComplete:)
-        name:CCMBuildCompleteNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(notificationServiceChanged:)
-        name:CCMNotificationAdapterChanged object:nil];
 }
 
 - (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description

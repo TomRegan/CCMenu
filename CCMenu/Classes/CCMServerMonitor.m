@@ -86,8 +86,9 @@ NSString *CCMProjectStatusUpdateNotification = @"CCMProjectStatusUpdateNotificat
 {
 	[self setupFromUserDefaults];
 	[notificationCenter postNotificationName:CCMProjectStatusUpdateNotification object:self];
-	if([[self connections] count] == 0)
-		return;
+	if([[self connections] count] == 0) {
+        return;
+    }
 	[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(pollServers:) userInfo:nil repeats:NO];
 	int interval = [defaultsManager pollInterval];
 	timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(pollServers:) userInfo:nil repeats:YES];
