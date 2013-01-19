@@ -10,15 +10,7 @@
 
 NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotification";
 
-
 @implementation CCMPreferencesController
-
-- (void)messagesMenuItemSelected:(id)sender
-{
-    if ([sender isKindOfClass:[NSPopUpButton class]]) {
-        NSLog(@"index %i", [sender indexOfSelectedItem]);
-    }
-}
 
 - (void)showWindow:(id)sender
 {
@@ -50,8 +42,9 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 	windowFrame.size.width = [prefView frame].size.width;
 	windowFrame.origin.y = NSMaxY([preferencesWindow frame]) - ([prefView frame].size.height + WINDOW_TITLE_HEIGHT);
 	
-	if([[paneHolderView subviews] count] > 0)
-		[[[paneHolderView subviews] firstObject] removeFromSuperview];
+	if([[paneHolderView subviews] count] > 0) {
+        [[[paneHolderView subviews] firstObject] removeFromSuperview];
+    }
 	[preferencesWindow setFrame:windowFrame display:YES animate:(sender != self)];
 	
 	[paneHolderView setFrame:[prefView frame]];
@@ -217,7 +210,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
     [[NSSound soundNamed:[sender title]] play];
 }
 
-
 - (void)preferencesChanged:(id)sender
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:CCMPreferencesChangedNotification object:sender];
@@ -231,6 +223,23 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 - (IBAction)checkForUpdateNow:(id)sender
 {
     [updater checkForUpdates:sender];
+}
+
+- (void)notificationAdapterChanged:(id)sender
+{
+    if ([sender isKindOfClass:[NSPopUpButton class]]) {
+        /* TODO:
+         * This seems a bit bogus: it's just mapping the menu index to a type
+         * in an enum, which is only slightly better than passing around ints.
+         */
+        selectedNotificationAdapter = [sender indexOfSelectedItem];
+        [[NSNotificationCenter defaultCenter] postNotificationName:CCMNotificationAdapterChanged object:self];
+    }
+}
+
+- (enum CCMNotificationAdapterSelection)selectedNotificationAdapter;
+{
+    return selectedNotificationAdapter;
 }
 
 @end

@@ -2,6 +2,7 @@
 #import "CCMWindowController.h"
 #import "CCMUserDefaultsManager.h"
 #import <Sparkle/Sparkle.h>
+#import "CCMNotificationAdaptor.h"
 
 
 @interface CCMPreferencesController : CCMWindowController 
@@ -29,6 +30,9 @@
 	IBOutlet NSArrayController		*chooseProjectsViewController;
 	
     IBOutlet NSSearchField          *searchField;
+    
+    enum CCMNotificationAdapterSelection selectedNotificationAdapter;
+
 }
 
 - (IBAction)showWindow:(id)sender;
@@ -39,7 +43,7 @@
 - (IBAction)chooseProjects:(id)sender;
 - (IBAction)closeAddProjectsSheet:(id)sender;
 
-- (IBAction)messagesMenuItemSelected:(id)sender;
+- (IBAction)notificationAdapterChanged:(id)sender;
 
 - (IBAction)removeProjects:(id)sender;
 
@@ -57,6 +61,8 @@
 - (NSArray *)availableSounds;
 
 - (IBAction)searchFieldUpdated:(id)sender;
+
+- (enum CCMNotificationAdapterSelection)selectedNotificationAdapter;
 
 @end
 
