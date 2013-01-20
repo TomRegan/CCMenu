@@ -31,7 +31,7 @@
 	
     IBOutlet NSSearchField          *searchField;
     
-    enum CCMNotificationAdapterSelection selectedNotificationAdapter;
+    enum CCMNotificationServices selectedNotificationService;
 
 }
 
@@ -62,7 +62,7 @@
 
 - (IBAction)searchFieldUpdated:(id)sender;
 
-- (enum CCMNotificationAdapterSelection)selectedNotificationAdapter;
+- (enum CCMNotificationServices)selectedNotificationService;
 
 @end
 

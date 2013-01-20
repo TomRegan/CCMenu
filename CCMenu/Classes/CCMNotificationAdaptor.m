@@ -10,7 +10,7 @@ struct {
 	NSString *description;
 } notificationDescriptions[4];
 
-NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
+NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 
 @implementation CCMNotificationAdaptor
 
@@ -41,7 +41,7 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
          name:CCMBuildCompleteNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
          selector:@selector(notificationServiceChanged:)
-         name:CCMNotificationAdapterChanged object:nil];
+         name:CCMNotificationServiceChanged object:nil];
     }
     return self;
 }
@@ -61,10 +61,9 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 
 - (void)start
 {
-    selectedNotificationAdapter = [defaultsManager notificationService];
-    
+    selectedNotificationService = [defaultsManager notificationService];
     isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
-    if (!isUserNotificationAvailable) {
+    if (selectedNotificationService == Growl) {
         [GrowlApplicationBridge setGrowlDelegate:(id)self];
     }
 }
@@ -93,7 +92,7 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 
 - (void)buildComplete:(NSNotification *)notification
 {
-    if (selectedNotificationAdapter == None) {
+    if (selectedNotificationService == None) {
         return;
     }
 
@@ -103,11 +102,11 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 	{
 		if([buildResult isEqualToString:notificationDescriptions[i].key])
 		{
-            if (isUserNotificationAvailable && selectedNotificationAdapter == NotificationCenter) {
+            if (isUserNotificationAvailable && selectedNotificationService == NotificationCenter) {
                 [self sendUserNotification:notificationDescriptions[i].name
                       withSubject:projectName
                       andDescription:notificationDescriptions[i].description];
-            } else  if (selectedNotificationAdapter == Growl){
+            } else  if (selectedNotificationService == Growl) {
                 [self sendGrowlNotification:notificationDescriptions[i].name
                       withSubject:projectName
                       andDescription:notificationDescriptions[i].description];
@@ -117,10 +116,9 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 	}
 }
 
-
 - (void)notificationServiceChanged:(NSNotification *)notification
 {
-    selectedNotificationAdapter = [notification.object selectedNotificationAdapter];
+    selectedNotificationService = [notification.object selectedNotificationService];
 }
 
 @end

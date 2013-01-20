@@ -4,8 +4,8 @@
 #import "CCMUserDefaultsManager.h"
 
 
-typedef enum CCMNotificationAdapterSelection : NSInteger CCMNotificationAdapterSelection;
-enum CCMNotificationAdapterSelection : NSInteger {
+typedef enum CCMNotificationServices : NSInteger CCMNotificationAdapterSelection;
+enum CCMNotificationServices : NSInteger {
     None,
     NotificationCenter,
     Growl
@@ -16,9 +16,8 @@ enum CCMNotificationAdapterSelection : NSInteger {
     IBOutlet CCMUserDefaultsManager *defaultsManager;
     
     BOOL isUserNotificationAvailable;
-    BOOL isNotificationEnabled;
     
-    enum CCMNotificationAdapterSelection  selectedNotificationAdapter;
+    enum CCMNotificationServices  selectedNotificationService;
 }
 
 - (void)start;
@@ -26,4 +25,4 @@ enum CCMNotificationAdapterSelection : NSInteger {
 
 @end
 
-extern NSString *CCMNotificationAdapterChanged;
+extern NSString *CCMNotificationServiceChanged;
