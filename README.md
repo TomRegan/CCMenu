@@ -55,6 +55,16 @@ the size of the list panes, and sorted the project list.
 
 ![New](https://farm9.staticflickr.com/8358/8374528884_b162131664_z.jpg)
 
+### Notification Center
+
+**Preferences...**
+
+![New](https://farm9.staticflickr.com/8512/8398896694_cdbdbf6311_o_d.png)
+
+**Example Notification...**
+
+![New](https://farm9.staticflickr.com/8370/8397809391_98430951d7_o_d.png)
+
 ## Future Stuff
 
 Any, all, or maybe none of the following
