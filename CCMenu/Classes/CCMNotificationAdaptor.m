@@ -54,8 +54,9 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 - (NSDictionary *)registrationDictionaryForGrowl
 {
 	NSMutableArray *names = [NSMutableArray array];
-	for(int i = 0; notificationDescriptions[i].key != nil; i++)
+	for(int i = 0; notificationDescriptions[i].key != nil; i++) {
 		[names addObject:notificationDescriptions[i].name];
+    }
 	return [NSDictionary dictionaryWithObject:names forKey:GROWL_NOTIFICATIONS_ALL];
 }
 
