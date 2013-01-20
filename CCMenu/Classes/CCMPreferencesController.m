@@ -232,14 +232,14 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
          * This seems a bit bogus: it's just mapping the menu index to a type
          * in an enum, which is only slightly better than passing around ints.
          */
-        selectedNotificationAdapter = [sender indexOfSelectedItem];
-        [[NSNotificationCenter defaultCenter] postNotificationName:CCMNotificationAdapterChanged object:self];
+        selectedNotificationService = [sender indexOfSelectedItem];
+        [[NSNotificationCenter defaultCenter] postNotificationName:CCMNotificationServiceChanged object:self];
     }
 }
 
-- (enum CCMNotificationAdapterSelection)selectedNotificationAdapter;
+- (enum CCMNotificationServices)selectedNotificationService;
 {
-    return selectedNotificationAdapter;
+    return selectedNotificationService;
 }
 
 @end

@@ -21,7 +21,6 @@ NSString *CCMNotificationService = @"NotificationService";
 
 - (int)notificationService
 {
-    NSLog(@"in CCMUserDefaultsManager notificationService");
     return [userDefaults integerForKey:CCMNotificationService];
 }
 
