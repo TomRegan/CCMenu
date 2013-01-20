@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.5
+
+Notification Center is available for build notifications.
+
 ## 1.4.4
 
 Projects are now displayed below the other menu options.
