@@ -5,7 +5,7 @@
 	<key>PollInterval</key>
 	<string>5</string>
 	<key>NotificationService</key>
-	<string>1</string>
+	<integer>0</integer>
 	<key>SUCheckAtStartup</key>
 	<false/>
 	<key>SUScheduledCheckInterval</key>
