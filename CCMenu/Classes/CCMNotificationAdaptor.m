@@ -31,18 +31,19 @@ NSString *CCMNotificationAdapterChanged = @"CCMNotificationAdapterChanged";
 	notificationDescriptions[3].key = CCMFixedBuild;
 	notificationDescriptions[3].name = NSLocalizedString(@"Fixed build", "Growl notification for successful build");
 	notificationDescriptions[3].description = NSLocalizedString(@"Recent checkins have fixed the build.", "For Growl notificiation");
-    
-    [self registerObservers];
 }
 
-+ (void)registerObservers
+- (id)init
 {
-    [[NSNotificationCenter defaultCenter]
-        addObserver:self selector:@selector(buildComplete:)
-        name:CCMBuildCompleteNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(notificationServiceChanged:)
-        name:CCMNotificationAdapterChanged object:nil];
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self selector:@selector(buildComplete:)
+         name:CCMBuildCompleteNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+         selector:@selector(notificationServiceChanged:)
+         name:CCMNotificationAdapterChanged object:nil];
+    }
+    return self;
 }
 
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager
