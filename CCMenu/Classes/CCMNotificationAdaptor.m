@@ -69,6 +69,11 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
     }
 }
 
+- (BOOL)userNotificationCenter:(NSNotificationCenter*)center shouldPresentNotification:(NSUserNotification *)notification
+{
+    return YES;
+}
+
 - (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
     NSUserNotification *notification = [[[NSUserNotification alloc] init] autorelease];
