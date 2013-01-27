@@ -47,12 +47,14 @@
 		[self setupRequestCache];
 		[self registerValueTransformers];
         [self startServices];
-		if([[serverMonitor projects] count] == 0)
+		if([[serverMonitor projects] count] == 0) {
 			[preferencesController showWindow:self];
+        }
 	}
-	@catch(NSException *e)
+	@catch(NSException *exception)
 	{
-		// ignore; if we don't the run-loop might not get set up properly
+		NSLog(@"Exception: %@\nReason: %@\nStack: %@",
+              [exception name], [exception reason], [exception callStackSymbols]);
 	}
 }
 
