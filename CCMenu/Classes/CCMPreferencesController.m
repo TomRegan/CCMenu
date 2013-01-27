@@ -4,6 +4,7 @@
 #import "CCMConnection.h"
 #import "NSArray+CCMAdditions.h"
 #import "NSString+CCMAdditions.h"
+#import "CCMNotificationAdaptor.h"
 #import <EDCommon/EDCommon.h>
 
 #define WINDOW_TITLE_HEIGHT 78
@@ -11,6 +12,19 @@
 NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotification";
 
 @implementation CCMPreferencesController
+
+
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+            selector:@selector(notificationCenterAvailabilityChanged:)
+            name:CCMUserNotificationAvailable
+            object:nil];
+    }
+    return self;
+}
 
 - (void)showWindow:(id)sender
 {
@@ -194,6 +208,7 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
     return sounds;
 }
 
+
 - (IBAction)searchFieldUpdated:(id)sender {
     NSString *searchString = [searchField stringValue];
     if ([searchString length] > 0) {
@@ -205,20 +220,34 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 }
 
+
 - (void)soundSelected:(id)sender
 {
     [[NSSound soundNamed:[sender title]] play];
 }
+
 
 - (void)preferencesChanged:(id)sender
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:CCMPreferencesChangedNotification object:sender];
 }
 
+
 - (IBAction)updateIntervalChanged:(id)sender
 {
 	[updater setUpdateCheckInterval:[sender selectedTag]];
 }
+
+
+- (void)notificationCenterAvailabilityChanged:(id)sedner
+{
+    //TODO: test implementation on Lion
+    //if some stuff then
+    //[[notificationServiceComboBox itemWithTitle:@"Notification Center"] setEnabled:NO];
+    //and select 'no notifications' ...
+    NSLog(@"notificationCenterAvailabilityChanged: called");
+}
+
 
 - (IBAction)checkForUpdateNow:(id)sender
 {

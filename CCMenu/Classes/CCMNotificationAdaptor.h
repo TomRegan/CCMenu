@@ -26,3 +26,4 @@ enum CCMNotificationServices : NSInteger {
 @end
 
 extern NSString *CCMNotificationServiceChanged;
+extern NSString *CCMUserNotificationAvailable;

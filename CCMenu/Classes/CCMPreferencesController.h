@@ -18,6 +18,7 @@
 	IBOutlet NSTextField			*versionField;
 	
     IBOutlet NSView					*notificationPrefsView;
+    IBOutlet NSPopUpButtonCell      *notificationServiceComboBox;
 	IBOutlet NSArrayController		*soundNamesViewController;
 
 	IBOutlet NSView					*advancedPrefsView;
