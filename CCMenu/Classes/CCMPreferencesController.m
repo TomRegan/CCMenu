@@ -217,7 +217,7 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 - (IBAction)updateIntervalChanged:(id)sender
 {
-	[updater scheduleCheckWithInterval:[sender selectedTag]];
+	[updater setUpdateCheckInterval:[sender selectedTag]];
 }
 
 - (IBAction)checkForUpdateNow:(id)sender
