@@ -912,7 +912,6 @@
 					"$(inherited)",
 					"\"${TARGET_BUILD_DIR}/Frameworks\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/CCMenu-ejqpdogdnnbkyperllgkmrlcgqxy/Build/Products/Debug/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -937,7 +936,6 @@
 					"$(inherited)",
 					"\"${BUILT_PRODUCTS_DIR}/Frameworks\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/CCMenu-ejqpdogdnnbkyperllgkmrlcgqxy/Build/Products/Debug/Frameworks\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
