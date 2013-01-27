@@ -3,12 +3,12 @@
 #import "CCMServerMonitor.h"
 #import "CCMPreferencesController.h"
 
-
+const size_t NOTIFICATION_COUNT = 4;
 struct {
 	NSString *key;
 	NSString *name;
 	NSString *description;
-} notificationDescriptions[4];
+} notificationDescriptions[NOTIFICATION_COUNT];
 
 NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 
@@ -54,7 +54,7 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 - (NSDictionary *)registrationDictionaryForGrowl
 {
 	NSMutableArray *names = [NSMutableArray array];
-	for(int i = 0; notificationDescriptions[i].key != nil; i++) {
+	for(int i = 0; i < NOTIFICATION_COUNT; i++) {
 		[names addObject:notificationDescriptions[i].name];
     }
 	return [NSDictionary dictionaryWithObject:names forKey:GROWL_NOTIFICATIONS_ALL];
