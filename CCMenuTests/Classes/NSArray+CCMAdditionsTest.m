@@ -16,7 +16,7 @@
 
 	STAssertEqualObjects(@"foo", [result objectAtIndex:0], @"Should have mapped object.");
 	STAssertEqualObjects(@"bar", [result objectAtIndex:1], @"Should have mapped object.");
-	STAssertEquals(2u, [result count], @"Should have returned array of same size.");
+	STAssertEquals((NSUInteger)2, [result count], @"Should have returned array of same size.");
 }
 
 - (void)testArrayCollectSkipsNilValues
@@ -28,14 +28,14 @@
 	NSArray *result = [[original collect] objectForKey:@"name"];
 	
 	STAssertEqualObjects(@"bar", [result objectAtIndex:0], @"Should have mapped object.");
-	STAssertEquals(1u, [result count], @"Should have returned array correct size.");
+	STAssertEquals((NSUInteger)1, [result count], @"Should have returned array correct size.");
 }
 
 - (void)testArrayCollectWorksWithEmptyArrays
 {
 	NSArray *result = [[[NSArray array] collect] objectForKey:@"name"];
 	
-	STAssertEquals(0u, [result count], @"Should have returned emptyArray.");
+	STAssertEquals((NSUInteger)0, [result count], @"Should have returned emptyArray.");
 }
 
 - (void)testArrayEach

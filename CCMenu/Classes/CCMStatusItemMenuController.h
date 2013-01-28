@@ -14,7 +14,7 @@
     NSTimer         *timer;
     
     @private
-    int             projectStartIndex;
+    NSUInteger       projectStartIndex;
 
 }
 

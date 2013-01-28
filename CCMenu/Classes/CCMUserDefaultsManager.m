@@ -19,16 +19,16 @@ NSString *CCMNotificationService = @"NotificationService";
     [self convertDefaultsIfNecessary];
 }
 
-- (int)notificationService
+- (NSInteger)pollInterval
 {
-    return [userDefaults integerForKey:CCMNotificationService];
+    NSInteger interval = [userDefaults integerForKey:CCMDefaultsPollIntervalKey];
+    NSAssert1(interval >= 5, @"Invalid poll interval; must be greater or equal 5 but is %li.", interval);
+    return interval;
 }
 
-- (int)pollInterval
+- (NSInteger)notificationService
 {
-	int interval = [userDefaults integerForKey:CCMDefaultsPollIntervalKey];
-	NSAssert1(interval >= 5, @"Invalid poll interval; must be greater or equal 5 but is %d.", interval);
-	return interval;
+    return [userDefaults integerForKey:CCMNotificationService];
 }
 
 - (NSDictionary *)createEntryWithProject:(NSString *)projectName andURL:(NSString *)serverUrl

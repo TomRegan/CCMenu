@@ -25,13 +25,12 @@
     connectionMock = [OCMockObject partialMockForObject:connection];
 }
 
-- (id)responseMockWithStatusCode:(int)statusCode
+- (id)responseMockWithStatusCode:(NSInteger)statusCode
 {
     id responseMock = [OCMockObject mockForClass:[NSHTTPURLResponse class]];
     [[[responseMock stub] andReturnValue:OCMOCK_VALUE(statusCode)] statusCode];
     return responseMock;
 }
-
 
 - (void)testConnectionTestSuccessfulWhenServerReturns200StatusCode
 {
@@ -52,7 +51,6 @@
     
     STAssertFalse(success, @"Should have indicated failure.");
 }
-
 
 - (void)testRetrievesStatusSynchronously
 {

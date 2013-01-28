@@ -49,7 +49,7 @@
 	STAssertEqualObjects(@"connectfour", [[items objectAtIndex: 1] title], @"Should have set correct project name.");
 	STAssertEquals(controller, [[items objectAtIndex: 1] target], @"Should have set correct target.");
 	STAssertTrue([[items objectAtIndex: 2] isSeparatorItem], @"Should have separator after projects.");
-	STAssertEquals(3u, [items count], @"Menu should have correct number of items.");
+	STAssertEquals((NSUInteger)3, [items count], @"Menu should have correct number of items.");
 }
 
 - (void)testAddsMenuItemInAlphabeticalOrder
@@ -64,7 +64,7 @@
 	NSArray *items = [[[controller statusItem] menu] itemArray];
 	STAssertEqualObjects(@"abc", [[items objectAtIndex: 1] title], @"Should have ordered projects alphabetically.");
 	STAssertEqualObjects(@"xyz", [[items objectAtIndex: 2] title], @"Should have ordered projects alphabetically.");
-	STAssertEquals(4u, [items count], @"Menu should have correct number of items.");
+	STAssertEquals((NSUInteger)4, [items count], @"Menu should have correct number of items.");
 }
 
 - (void)testRemovesMenuItem
@@ -80,7 +80,7 @@
 	NSArray *items = [[[controller statusItem] menu] itemArray];
 	STAssertEqualObjects(@"abc", [[items objectAtIndex: 1] title], @"Should have kept correct project.");
 	STAssertTrue([[items objectAtIndex: 2] isSeparatorItem], @"Should have separator after projects.");
-	STAssertEquals(3u, [items count], @"Menu should have correct number of items.");
+	STAssertEquals((NSUInteger)3, [items count], @"Menu should have correct number of items.");
 }
 
 - (void)testUpdatesMenuItemsForProjectsWithSameNameOnDifferentServers

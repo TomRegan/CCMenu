@@ -106,7 +106,7 @@
     if (!projectStartIndex) {
         projectStartIndex = [menu.itemArray count] - 1;
     }
-	int index = projectStartIndex;
+	NSUInteger index = projectStartIndex;
     
     NSArray *projects = [projectList sortedArrayByComparingAttribute:@"name"];
 

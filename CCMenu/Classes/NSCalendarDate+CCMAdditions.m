@@ -7,22 +7,25 @@
 
 - (NSString *)relativeDescriptionOfPastDate:(NSCalendarDate *)other
 {
-	int days, hours, mins;
+	NSInteger days, hours, mins;
+    NSString *description = [[[NSString alloc] initWithString:@"less than a minute ago"] autorelease];
 	[self years:NULL months:NULL days:&days hours:&hours minutes:&mins seconds:NULL sinceDate:other];
 	
-	if(days > 1)
-		return [NSString stringWithFormat:@"%d days ago", days];
-	if(days == 1)
-		return @"1 day ago";
-	if(hours > 1)
-		return [NSString stringWithFormat:@"%d hours ago", hours];
-	if(hours == 1)
-		return @"an hour ago";
-	if(mins > 1)
-		return [NSString stringWithFormat:@"%d minutes ago", mins];
-	if(mins == 1)
-		return @"a minute ago";
-	return @"less than a minute ago";
+	if (days > 1) {
+		description = [NSString stringWithFormat:@"%li days ago", days];
+    } else if (days == 1) {
+		description = @"1 day ago";
+    } else if (hours > 1) {
+		description = [NSString stringWithFormat:@"%li hours ago", hours];
+    } else if (hours == 1) {
+		description = @"an hour ago";
+    } else if (mins > 1) {
+		description = [NSString stringWithFormat:@"%li minutes ago", mins];
+    } else if (mins == 1) {
+		description = @"a minute ago";
+    }
+    
+	return description;
 }
 
 - (NSString *)descriptionOfIntervalWithDate:(NSCalendarDate *)other
@@ -37,14 +40,17 @@
 
 + (NSString *)descriptionOfInterval:(NSTimeInterval)timeInterval withSign:(BOOL)withSign
 {
-    long interval = (long)timeInterval;
+    NSInteger interval = (NSInteger)timeInterval;
     NSString *sign = withSign ? ((interval < 0) ? @"-" : @"+") : @"";
-    interval = abs(interval);
+    interval = ABS(interval);
 
-    if(interval > 3600)
+    if(interval > 3600) {
         return [NSString stringWithFormat:@"%@%ld:%02ld:%02ld", sign, interval / 3600, (interval / 60) % 60, interval % 60];
-    if(interval > 60)
+    }
+    if(interval > 60) {
         return [NSString stringWithFormat:@"%@%ld:%02ld", sign, interval / 60, interval % 60];
+    }
+    
     return [NSString stringWithFormat:@"%@%lds", sign, interval];
 }
 

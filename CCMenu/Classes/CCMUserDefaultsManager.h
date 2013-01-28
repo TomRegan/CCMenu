@@ -7,8 +7,8 @@
 	NSUserDefaults	*userDefaults;
 }
 
-- (int)pollInterval;
-- (int)notificationService;
+- (NSInteger)pollInterval;
+- (NSInteger)notificationService;
 
 - (void)addProject:(NSString *)projectName onServerWithURL:(NSString *)serverUrl;
 - (BOOL)projectListContainsProject:(NSString *)projectName onServerWithURL:(NSString *)serverUrl;

@@ -6,7 +6,7 @@
 @interface CCMConnectionTest : SenTestCase 
 {
     CCMConnection   *connection;
-    id              connectionMock;
+    OCMockObject    *connectionMock;
     NSArray         *recordedInfos;
     NSString        *recordedError;
 }

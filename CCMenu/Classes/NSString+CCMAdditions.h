@@ -1,7 +1,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef enum {
+typedef enum :  NSInteger {
 	CCMUnknownServer = -1,
 	CCMCruiseControlDashboard = 0,
 	CCMCruiseControlClassic = 1,

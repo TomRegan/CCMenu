@@ -78,10 +78,11 @@
 	NSHTTPURLResponse *response = nil;
 	NSError *error = nil;
     [self sendSynchronousRequest:request returningResponse:&response error:&error];
-	if(error != nil)
+	if(error != nil) {
 		[NSException raise:@"ConnectionException" format:@"%@", [self errorStringForError:error]];
-	int status = [response statusCode];
-	return (status >= 200 && status != 404 && status < 500);
+    }
+	NSInteger status = [response statusCode];
+    return (status >= 200 && status != 404 && status < 500);
 }
 
 - (NSArray *)retrieveServerStatus
@@ -90,15 +91,22 @@
 	NSHTTPURLResponse *response = nil;
 	NSError *requestError = nil;
 	NSData *data = [self sendSynchronousRequest:request returningResponse:&response error:&requestError];
-	if(data == nil)
+	
+    if(data == nil) {
 		[NSException raise:@"ConnectionException" format:@"%@", [self errorStringForError:requestError]];
-	if([response statusCode] != 200)
+    }
+	if([response statusCode] != 200) {
 		[NSException raise:@"ConnectionException" format:@"%@", [self errorStringForResponse:response]];
-	CCMServerStatusReader *reader = [[[CCMServerStatusReader alloc] initWithServerResponse:data] autorelease];
+    }
+	
+    CCMServerStatusReader *reader = [[[CCMServerStatusReader alloc] initWithServerResponse:data] autorelease];
     NSError *parseError = nil;
 	NSArray *infos = [reader readProjectInfos:&parseError];
-    if(infos == nil)
+    
+    if(infos == nil) {
 		[NSException raise:@"ConnectionException" format:@"%@", [self errorStringForParseError:parseError]];
+    }
+    
     return infos;
 }
 

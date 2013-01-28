@@ -15,7 +15,7 @@
 	NSArray *infos = [reader readProjectInfos:NULL];
 	
     STAssertNotNil(infos, @"Should receive a response.");
-    STAssertEquals(1u, [infos count], @"Response should be an array.");
+    STAssertEquals((NSUInteger)1, [infos count], @"Response should be an array.");
 	
 	NSDictionary *info = [infos objectAtIndex:0];
 	STAssertEqualObjects(@"connectfour", [info objectForKey:@"name"], @"Should have copied project name.");
