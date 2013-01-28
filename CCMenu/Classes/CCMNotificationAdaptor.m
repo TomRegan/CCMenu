@@ -3,6 +3,7 @@
 #import "CCMServerMonitor.h"
 #import "CCMPreferencesController.h"
 
+
 const size_t NOTIFICATION_COUNT = 4;
 struct {
 	NSString *key;
@@ -14,6 +15,8 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 NSString *CCMUserNotificationAvailable  = @"CCMUserNotificationAvailable";
 
 @implementation CCMNotificationAdaptor
+
+@synthesize selectedNotificationService = _selectedNotificationService;
 
 + (void)initialize
 {
@@ -63,8 +66,8 @@ NSString *CCMUserNotificationAvailable  = @"CCMUserNotificationAvailable";
 
 - (void)start
 {
-    selectedNotificationService = [defaultsManager notificationService];
-    isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
+    [self setSelectedNotificationService:[defaultsManager notificationService]];
+    self.isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
     [GrowlApplicationBridge setGrowlDelegate:(id)self];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:CCMUserNotificationAvailable object:self];
@@ -97,35 +100,38 @@ NSString *CCMUserNotificationAvailable  = @"CCMUserNotificationAvailable";
      clickContext:nil];
 }
 
+- (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
+{
+    if (self.isUserNotificationAvailable && self.selectedNotificationService == NotificationCenter) {
+        [self sendUserNotification:title withSubject:subject andDescription:description];
+    } else  if (self.selectedNotificationService == Growl) {
+        [self sendGrowlNotification:title withSubject:subject andDescription:description];
+    }
+}
+
 - (void)buildComplete:(NSNotification *)notification
 {
-    if (selectedNotificationService == None) {
+    if (self.selectedNotificationService == None) {
         return;
     }
 
     NSString *projectName = [[notification object] name];
     NSString *buildResult = [[notification userInfo] objectForKey:@"buildResult"];
-	for(int i = 0; notificationDescriptions[i].key != nil; i++)
+	for(int i = 0; i < NOTIFICATION_COUNT; i++)
 	{
-		if([buildResult isEqualToString:notificationDescriptions[i].key])
-		{
-            if (isUserNotificationAvailable && selectedNotificationService == NotificationCenter) {
-                [self sendUserNotification:notificationDescriptions[i].name
-                      withSubject:projectName
-                      andDescription:notificationDescriptions[i].description];
-            } else  if (selectedNotificationService == Growl) {
-                [self sendGrowlNotification:notificationDescriptions[i].name
-                      withSubject:projectName
-                      andDescription:notificationDescriptions[i].description];
-            }
-			break;
-		}
+		if(![buildResult isEqualToString: notificationDescriptions[i].key]) {
+            continue;
+        }
+        [self sendUserNotification: notificationDescriptions[i].name
+              withSubject: projectName
+              andDescription: notificationDescriptions[i].description];
 	}
 }
 
 - (void)notificationServiceChanged:(NSNotification *)notification
 {
-    selectedNotificationService = [notification.object selectedNotificationService];
+    [self setSelectedNotificationService:[notification.object selectedNotificationService]];
+    [self sendNotification:@"CCMenu" withSubject:@"Notification Preferences Changed" andDescription:@"Notifications will be shown here"];
 }
 
 @end

@@ -14,11 +14,10 @@ enum CCMNotificationServices : NSInteger {
 @interface CCMNotificationAdaptor : NSObject 
 {
     IBOutlet CCMUserDefaultsManager *defaultsManager;
-    
-    BOOL isUserNotificationAvailable;
-    
-    enum CCMNotificationServices  selectedNotificationService;
 }
+
+@property (nonatomic) enum CCMNotificationServices  selectedNotificationService;
+@property (nonatomic) BOOL isUserNotificationAvailable;
 
 - (void)start;
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager;
