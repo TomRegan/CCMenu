@@ -241,6 +241,9 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 - (void)notificationCenterAvailabilityChanged:(id)sedner
 {
+    //TODO: refactor configuration into its own class shared between
+    //      objects...
+    
     //TODO: test implementation on Lion
     //if some stuff then
     //[[notificationServiceComboBox itemWithTitle:@"Notification Center"] setEnabled:NO];
