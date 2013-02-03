@@ -14,18 +14,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 @implementation CCMPreferencesController
 
 
--(id)init
-{
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-            selector:@selector(notificationCenterAvailabilityChanged:)
-            name:CCMUserNotificationAvailable
-            object:nil];
-    }
-    return self;
-}
-
 - (void)showWindow:(id)sender
 {
 	if(preferencesWindow == nil)
@@ -237,19 +225,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 - (IBAction)updateIntervalChanged:(id)sender
 {
 	[updater setUpdateCheckInterval:[sender selectedTag]];
-}
-
-
-- (void)notificationCenterAvailabilityChanged:(id)sedner
-{
-    //TODO: refactor configuration into its own class shared between
-    //      objects...
-    
-    //TODO: test implementation on Lion
-    //if some stuff then
-    //[[notificationServiceComboBox itemWithTitle:@"Notification Center"] setEnabled:NO];
-    //and select 'no notifications' ...
-    NSLog(@"notificationCenterAvailabilityChanged: called");
 }
 
 

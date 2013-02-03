@@ -12,7 +12,6 @@ struct {
 } notificationDescriptions[NOTIFICATION_COUNT];
 
 NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
-NSString *CCMUserNotificationAvailable  = @"CCMUserNotificationAvailable";
 
 @implementation CCMNotificationAdaptor
 
@@ -69,8 +68,6 @@ NSString *CCMUserNotificationAvailable  = @"CCMUserNotificationAvailable";
     [self setSelectedNotificationService:[defaultsManager notificationService]];
     self.isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
     [GrowlApplicationBridge setGrowlDelegate:(id)self];
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:CCMUserNotificationAvailable object:self];
 }
 
 - (BOOL)userNotificationCenter:(NSNotificationCenter*)center shouldPresentNotification:(NSUserNotification *)notification
