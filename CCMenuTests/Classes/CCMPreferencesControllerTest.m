@@ -19,13 +19,31 @@
 	
 	serverTypeMatrixMock = [OCMockObject mockForClass:[NSMatrix class]];
 	[controller setValue:serverTypeMatrixMock forKey:@"serverTypeMatrix"];
+
+    notificationCenterMock = [OCMockObject partialMockForObject:[NSNotificationCenter defaultCenter]];
 }
 
 - (void)tearDown
 {
-	[defaultsManagerMock verify];
-	[serverUrlComboBoxMock verify];
-	[serverTypeMatrixMock verify];
+    [defaultsManagerMock verify];
+    [serverUrlComboBoxMock verify];
+    [serverTypeMatrixMock verify];
+    [notificationCenterMock verify];
+}
+
+
+-(void)testNotificationServiceChangedPostsNotification
+{
+    NSInteger service = NotificationCenter;
+    OCMockObject *sender = [OCMockObject partialMockForObject:[[[NSPopUpButton alloc] init] autorelease]];
+
+    [[[sender stub] andReturnValue:OCMOCK_VALUE(service)] indexOfSelectedItem];
+    [[notificationCenterMock expect] postNotificationName:@"CCMNotificationServiceChanged" object:controller];
+
+    [controller notificationAdapterChanged:sender];
+    // should use 'stop', but it's causing an error
+    // TODO: upgrade OCMock framework
+    //[notificationCenterMock stopMocking]; //reset expectations (http://stackoverflow.com/questions/8556527/)
 }
 
 - (void)testSelectsServerTypeWhenHistoryURLIsSelected

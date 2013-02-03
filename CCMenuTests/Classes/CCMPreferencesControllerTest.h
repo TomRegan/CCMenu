@@ -6,11 +6,12 @@
 
 @interface CCMPreferencesControllerTest : SenTestCase 
 {
-	CCMPreferencesController *controller;
-	
-	OCMockObject *defaultsManagerMock;
-	OCMockObject *serverUrlComboBoxMock;
-	OCMockObject *serverTypeMatrixMock;
+    CCMPreferencesController *controller;
+
+    OCMockObject *defaultsManagerMock;
+    OCMockObject *serverUrlComboBoxMock;
+    OCMockObject *serverTypeMatrixMock;
+    OCMockObject *notificationCenterMock;
 }
 
 @end
