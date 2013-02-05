@@ -108,6 +108,7 @@
 		E234EF5316A784F30033FE62 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234EF5216A784F30033FE62 /* Sparkle.framework */; };
 		E234EF5416A785350033FE62 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E234EF5216A784F30033FE62 /* Sparkle.framework */; };
 		E2AC0E2016B719900082BA49 /* CCMSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DE259F146AB86C00521846 /* CCMSoundPlayer.m */; };
+		E2EE0B9616BFBF48002E7D7B /* CCMNotificationAdaptorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EE0B9516BFBF48002E7D7B /* CCMNotificationAdaptorTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,8 @@
 		03E288C1144F045E0026DAC4 /* NSObject+CCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CCMAdditions.h"; sourceTree = "<group>"; };
 		03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CCMAdditions.m"; sourceTree = "<group>"; };
 		E234EF5216A784F30033FE62 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2EE0B9416BFBF48002E7D7B /* CCMNotificationAdaptorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMNotificationAdaptorTest.h; path = ../../CCMenu/Classes/CCMNotificationAdaptorTest.h; sourceTree = "<group>"; };
+		E2EE0B9516BFBF48002E7D7B /* CCMNotificationAdaptorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMNotificationAdaptorTest.m; path = ../../CCMenu/Classes/CCMNotificationAdaptorTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +421,8 @@
 		0349BC78134F9F9100D2F269 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E2EE0B9416BFBF48002E7D7B /* CCMNotificationAdaptorTest.h */,
+				E2EE0B9516BFBF48002E7D7B /* CCMNotificationAdaptorTest.m */,
 				0349BC79134F9F9100D2F269 /* CCMBuildNotificationFactoryTest.h */,
 				0349BC7A134F9F9100D2F269 /* CCMBuildNotificationFactoryTest.m */,
 				0349BC7B134F9F9100D2F269 /* CCMBuildStatusTransformerTest.h */,
@@ -782,6 +787,7 @@
 				0301A785142C7D940041F299 /* CCMProjectStatusTest.m in Sources */,
 				03E288C4144F045E0026DAC4 /* NSObject+CCMAdditions.m in Sources */,
 				03BDCAC01456A00F000C3D32 /* CCMProjectBuilder.m in Sources */,
+				E2EE0B9616BFBF48002E7D7B /* CCMNotificationAdaptorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
