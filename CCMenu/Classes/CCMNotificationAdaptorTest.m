@@ -11,13 +11,13 @@
 
 -(void) setUp
 {
-    notificationAdaptorMock = [OCMockObject partialMockForObject:[[[CCMNotificationService alloc] init] autorelease]];
+    notificationServiceMock = [OCMockObject partialMockForObject:[[[CCMNotificationService alloc] init] autorelease]];
 
 }
 
 -(void) tearDown
 {
-    [notificationAdaptorMock verify];
+    [notificationServiceMock verify];
 }
 
 -(NSNotification *)notificationWithCurrentStatus:(NSString *)currentStatus andActivity:(NSString *)currentActivity andWithPreviousStatus:(NSString *)oldStatus andActivity:(NSString *)oldActivity
@@ -38,16 +38,16 @@
                                     andActivity:CCMSleepingActivity
                                     andWithPreviousStatus:CCMSuccessStatus
                                     andActivity:CCMBuildingActivity];
-    [[[notificationAdaptorMock stub]
+    [[[notificationServiceMock stub]
       andReturnValue:OCMOCK_VALUE((NSInteger){NotificationCenter})]
      selectedNotificationService];
 
-    [[[notificationAdaptorMock expect] andForwardToRealObject] buildComplete:notification];
-    [[notificationAdaptorMock expect] sendUserNotification:@"Build successful"
+    [[[notificationServiceMock expect] andForwardToRealObject] buildComplete:notification];
+    [[notificationServiceMock expect] sendUserNotification:@"Build successful"
                                                withSubject:@"connectfour"
                                             andDescription:@"Yet another successful build!"];
 
-    [notificationAdaptorMock buildComplete:notification];
+    [notificationServiceMock buildComplete:notification];
 }
 
 @end
