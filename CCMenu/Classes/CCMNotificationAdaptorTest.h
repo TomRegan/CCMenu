@@ -15,7 +15,7 @@
 #import "CCMProjectBuilder.h"
 
 
-@interface CCMNotificationAdapterTest : SenTestCase
+@interface CCMNotificationServiceTest : SenTestCase
 {
     id notificationServiceMock;
 }

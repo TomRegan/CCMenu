@@ -7,7 +7,7 @@
 @end
 
 
-@implementation CCMNotificationAdapterTest
+@implementation CCMNotificationServiceTest
 
 -(void) setUp
 {
