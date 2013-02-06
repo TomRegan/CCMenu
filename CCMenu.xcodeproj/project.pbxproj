@@ -107,6 +107,8 @@
 		03E288C4144F045E0026DAC4 /* NSObject+CCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */; };
 		E234EF5316A784F30033FE62 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234EF5216A784F30033FE62 /* Sparkle.framework */; };
 		E234EF5416A785350033FE62 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E234EF5216A784F30033FE62 /* Sparkle.framework */; };
+		E26CF2AD16C31DA00097A8ED /* CCMNotificationAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */; };
+		E26CF2AE16C31F4F0097A8ED /* CCMNotificationAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */; };
 		E2AC0E2016B719900082BA49 /* CCMSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DE259F146AB86C00521846 /* CCMSoundPlayer.m */; };
 		E2EE0B9616BFBF48002E7D7B /* CCMNotificationAdaptorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EE0B9516BFBF48002E7D7B /* CCMNotificationAdaptorTest.m */; };
 /* End PBXBuildFile section */
@@ -255,6 +257,8 @@
 		03E288C1144F045E0026DAC4 /* NSObject+CCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CCMAdditions.h"; sourceTree = "<group>"; };
 		03E288C2144F045E0026DAC4 /* NSObject+CCMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CCMAdditions.m"; sourceTree = "<group>"; };
 		E234EF5216A784F30033FE62 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26CF2AB16C31DA00097A8ED /* CCMNotificationAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMNotificationAdaptor.h; sourceTree = "<group>"; };
+		E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMNotificationAdaptor.m; sourceTree = "<group>"; };
 		E2EE0B9416BFBF48002E7D7B /* CCMNotificationAdaptorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMNotificationAdaptorTest.h; path = ../../CCMenu/Classes/CCMNotificationAdaptorTest.h; sourceTree = "<group>"; };
 		E2EE0B9516BFBF48002E7D7B /* CCMNotificationAdaptorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMNotificationAdaptorTest.m; path = ../../CCMenu/Classes/CCMNotificationAdaptorTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -361,6 +365,8 @@
 				03DE259F146AB86C00521846 /* CCMSoundPlayer.m */,
 				03C0828F134F97940039E3BD /* CCMStatusItemMenuController.h */,
 				03C08290134F97940039E3BD /* CCMStatusItemMenuController.m */,
+				E26CF2AB16C31DA00097A8ED /* CCMNotificationAdaptor.h */,
+				E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */,
 			);
 			name = "Status Observers";
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				03E288C3144F045E0026DAC4 /* NSObject+CCMAdditions.m in Sources */,
 				03BDCABF1456A00F000C3D32 /* CCMProjectBuilder.m in Sources */,
 				03DE25A0146AB86C00521846 /* CCMSoundPlayer.m in Sources */,
+				E26CF2AD16C31DA00097A8ED /* CCMNotificationAdaptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +755,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26CF2AE16C31F4F0097A8ED /* CCMNotificationAdaptor.m in Sources */,
 				E2AC0E2016B719900082BA49 /* CCMSoundPlayer.m in Sources */,
 				0349BC96134F9F9100D2F269 /* CCMBuildNotificationFactoryTest.m in Sources */,
 				0349BC97134F9F9100D2F269 /* CCMBuildStatusTransformerTest.m in Sources */,

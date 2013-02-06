@@ -45,6 +45,7 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
         [[NSNotificationCenter defaultCenter] addObserver:self
          selector:@selector(notificationServiceChanged:)
          name:CCMNotificationServiceChanged object:nil];
+        notificationAdapter = [[[CCMNotificationAdaptor alloc] init] autorelease];
     }
     return self;
 }

@@ -2,6 +2,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Growl/Growl.h>
 #import "CCMUserDefaultsManager.h"
+#import "CCMNotificationAdaptor.h"
 
 
 typedef enum CCMNotificationServices : NSInteger CCMNotificationAdapterSelection;
@@ -14,6 +15,7 @@ enum CCMNotificationServices : NSInteger {
 @interface CCMNotificationService : NSObject 
 {
     IBOutlet CCMUserDefaultsManager *defaultsManager;
+    CCMNotificationAdaptor *notificationAdapter;
 }
 
 @property (nonatomic) enum CCMNotificationServices  selectedNotificationService;
