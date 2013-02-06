@@ -8,7 +8,7 @@ NSString *CCMDefaultsProjectEntryNameKey = @"projectName";
 NSString *CCMDefaultsProjectEntryServerUrlKey = @"serverUrl";
 NSString *CCMDefaultsPollIntervalKey = @"PollInterval";
 NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
-NSString *CCMNotificationService = @"NotificationService";
+NSString *CCMSelectedNotificationProvider = @"CCMSelectedNotificationProvider";
 
 
 @implementation CCMUserDefaultsManager
@@ -28,7 +28,7 @@ NSString *CCMNotificationService = @"NotificationService";
 
 - (NSInteger)notificationService
 {
-    return [userDefaults integerForKey:CCMNotificationService];
+    return [userDefaults integerForKey:CCMSelectedNotificationProvider];
 }
 
 - (NSDictionary *)createEntryWithProject:(NSString *)projectName andURL:(NSString *)serverUrl

@@ -11,7 +11,7 @@ enum CCMNotificationServices : NSInteger {
     Growl
 };
 
-@interface CCMNotificationAdaptor : NSObject 
+@interface CCMNotificationService : NSObject 
 {
     IBOutlet CCMUserDefaultsManager *defaultsManager;
 }

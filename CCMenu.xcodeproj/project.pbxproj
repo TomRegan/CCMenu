@@ -65,7 +65,7 @@
 		039C92D8135CE0080012838C /* CCMBuildNotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08278134F97940039E3BD /* CCMBuildNotificationFactory.m */; };
 		039C92D9135CE0080012838C /* CCMBuildStatusTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827A134F97940039E3BD /* CCMBuildStatusTransformer.m */; };
 		039C92DA135CE0080012838C /* CCMConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827C134F97940039E3BD /* CCMConnection.m */; };
-		039C92DB135CE0080012838C /* CCMNotificationAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827E134F97940039E3BD /* CCMNotificationAdaptor.m */; };
+		039C92DB135CE0080012838C /* CCMNotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827E134F97940039E3BD /* CCMNotificationService.m */; };
 		039C92DC135CE0080012838C /* CCMImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08280134F97940039E3BD /* CCMImageFactory.m */; };
 		039C92DD135CE0080012838C /* CCMPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08282134F97940039E3BD /* CCMPreferencesController.m */; };
 		039C92DE135CE0080012838C /* CCMProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08284134F97940039E3BD /* CCMProject.m */; };
@@ -85,7 +85,7 @@
 		03C0829E134F97940039E3BD /* CCMBuildNotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08278134F97940039E3BD /* CCMBuildNotificationFactory.m */; };
 		03C0829F134F97940039E3BD /* CCMBuildStatusTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827A134F97940039E3BD /* CCMBuildStatusTransformer.m */; };
 		03C082A0134F97940039E3BD /* CCMConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827C134F97940039E3BD /* CCMConnection.m */; };
-		03C082A1134F97940039E3BD /* CCMNotificationAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827E134F97940039E3BD /* CCMNotificationAdaptor.m */; };
+		03C082A1134F97940039E3BD /* CCMNotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0827E134F97940039E3BD /* CCMNotificationService.m */; };
 		03C082A2134F97940039E3BD /* CCMImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08280134F97940039E3BD /* CCMImageFactory.m */; };
 		03C082A3134F97940039E3BD /* CCMPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08282134F97940039E3BD /* CCMPreferencesController.m */; };
 		03C082A4134F97940039E3BD /* CCMProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C08284134F97940039E3BD /* CCMProject.m */; };
@@ -219,8 +219,8 @@
 		03C0827A134F97940039E3BD /* CCMBuildStatusTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMBuildStatusTransformer.m; sourceTree = "<group>"; };
 		03C0827B134F97940039E3BD /* CCMConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMConnection.h; sourceTree = "<group>"; };
 		03C0827C134F97940039E3BD /* CCMConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMConnection.m; sourceTree = "<group>"; };
-		03C0827D134F97940039E3BD /* CCMNotificationAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMNotificationAdaptor.h; sourceTree = "<group>"; };
-		03C0827E134F97940039E3BD /* CCMNotificationAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMNotificationAdaptor.m; sourceTree = "<group>"; };
+		03C0827D134F97940039E3BD /* CCMNotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMNotificationService.h; sourceTree = "<group>"; };
+		03C0827E134F97940039E3BD /* CCMNotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMNotificationService.m; sourceTree = "<group>"; };
 		03C0827F134F97940039E3BD /* CCMImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMImageFactory.h; sourceTree = "<group>"; };
 		03C08280134F97940039E3BD /* CCMImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMImageFactory.m; sourceTree = "<group>"; };
 		03C08281134F97940039E3BD /* CCMPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPreferencesController.h; sourceTree = "<group>"; };
@@ -355,8 +355,8 @@
 			children = (
 				0306184E13DD554F003B065E /* CCMBuildTimer.h */,
 				0306184F13DD554F003B065E /* CCMBuildTimer.m */,
-				03C0827D134F97940039E3BD /* CCMNotificationAdaptor.h */,
-				03C0827E134F97940039E3BD /* CCMNotificationAdaptor.m */,
+				03C0827D134F97940039E3BD /* CCMNotificationService.h */,
+				03C0827E134F97940039E3BD /* CCMNotificationService.m */,
 				03DE259E146AB86C00521846 /* CCMSoundPlayer.h */,
 				03DE259F146AB86C00521846 /* CCMSoundPlayer.m */,
 				03C0828F134F97940039E3BD /* CCMStatusItemMenuController.h */,
@@ -720,7 +720,7 @@
 				03C0829E134F97940039E3BD /* CCMBuildNotificationFactory.m in Sources */,
 				03C0829F134F97940039E3BD /* CCMBuildStatusTransformer.m in Sources */,
 				03C082A0134F97940039E3BD /* CCMConnection.m in Sources */,
-				03C082A1134F97940039E3BD /* CCMNotificationAdaptor.m in Sources */,
+				03C082A1134F97940039E3BD /* CCMNotificationService.m in Sources */,
 				03C082A2134F97940039E3BD /* CCMImageFactory.m in Sources */,
 				03C082A3134F97940039E3BD /* CCMPreferencesController.m in Sources */,
 				03C082A4134F97940039E3BD /* CCMProject.m in Sources */,
@@ -766,7 +766,7 @@
 				039C92D8135CE0080012838C /* CCMBuildNotificationFactory.m in Sources */,
 				039C92D9135CE0080012838C /* CCMBuildStatusTransformer.m in Sources */,
 				039C92DA135CE0080012838C /* CCMConnection.m in Sources */,
-				039C92DB135CE0080012838C /* CCMNotificationAdaptor.m in Sources */,
+				039C92DB135CE0080012838C /* CCMNotificationService.m in Sources */,
 				039C92DC135CE0080012838C /* CCMImageFactory.m in Sources */,
 				039C92DD135CE0080012838C /* CCMPreferencesController.m in Sources */,
 				039C92DE135CE0080012838C /* CCMProject.m in Sources */,

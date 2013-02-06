@@ -4,7 +4,7 @@
 #import "CCMConnection.h"
 #import "NSArray+CCMAdditions.h"
 #import "NSString+CCMAdditions.h"
-#import "CCMNotificationAdaptor.h"
+#import "CCMNotificationService.h"
 #import <EDCommon/EDCommon.h>
 
 #define WINDOW_TITLE_HEIGHT 78

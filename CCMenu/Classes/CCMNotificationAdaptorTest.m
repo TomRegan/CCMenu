@@ -1,7 +1,7 @@
 
 #import "CCMNotificationAdaptorTest.h"
 
-@interface CCMNotificationAdaptor()
+@interface CCMNotificationService()
     -(void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
     -(void)buildComplete:(NSNotification *)notification;
 @end
@@ -11,7 +11,7 @@
 
 -(void) setUp
 {
-    notificationAdaptorMock = [OCMockObject partialMockForObject:[[[CCMNotificationAdaptor alloc] init] autorelease]];
+    notificationAdaptorMock = [OCMockObject partialMockForObject:[[[CCMNotificationService alloc] init] autorelease]];
 
 }
 

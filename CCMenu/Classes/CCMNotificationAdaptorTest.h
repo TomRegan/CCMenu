@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <OCMock/OCMock.h>
 
-#import "CCMNotificationAdaptor.h"
+#import "CCMNotificationService.h"
 #import "CCMBuildNotificationFactory.h"
 #import "CCMProjectStatus.h"
 #import "CCMProjectBuilder.h"

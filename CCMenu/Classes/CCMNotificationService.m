@@ -1,5 +1,5 @@
 
-#import "CCMNotificationAdaptor.h"
+#import "CCMNotificationService.h"
 #import "CCMServerMonitor.h"
 #import "CCMPreferencesController.h"
 
@@ -13,7 +13,7 @@ struct {
 
 NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 
-@implementation CCMNotificationAdaptor
+@implementation CCMNotificationService
 
 @synthesize selectedNotificationService = _selectedNotificationService;
 

@@ -2,7 +2,7 @@
 #import "CCMWindowController.h"
 #import "CCMUserDefaultsManager.h"
 #import <Sparkle/Sparkle.h>
-#import "CCMNotificationAdaptor.h"
+#import "CCMNotificationService.h"
 
 
 @interface CCMPreferencesController : CCMWindowController 
