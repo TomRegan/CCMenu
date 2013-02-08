@@ -469,18 +469,19 @@
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="imageFactory">CCMImageFactory</string>
-						<string key="notificationAdapter">CCMNotificationAdaptor</string>
+						<string key="notificationService">CCMNotificationService</string>
 						<string key="preferencesController">CCMPreferencesController</string>
 						<string key="serverMonitor">CCMServerMonitor</string>
+						<string key="userNotificationHandler">CCMUserNotificationHandler</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="imageFactory">
 							<string key="name">imageFactory</string>
 							<string key="candidateClassName">CCMImageFactory</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="notificationAdapter">
-							<string key="name">notificationAdapter</string>
-							<string key="candidateClassName">CCMNotificationAdaptor</string>
+						<object class="IBToOneOutletInfo" key="notificationService">
+							<string key="name">notificationService</string>
+							<string key="candidateClassName">CCMNotificationService</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="preferencesController">
 							<string key="name">preferencesController</string>
@@ -489,6 +490,10 @@
 						<object class="IBToOneOutletInfo" key="serverMonitor">
 							<string key="name">serverMonitor</string>
 							<string key="candidateClassName">CCMServerMonitor</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="userNotificationHandler">
+							<string key="name">userNotificationHandler</string>
+							<string key="candidateClassName">CCMUserNotificationHandler</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -505,7 +510,7 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">CCMNotificationAdaptor</string>
+					<string key="className">CCMNotificationService</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">defaultsManager</string>
@@ -520,7 +525,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CCMNotificationAdaptor.h</string>
+						<string key="minorKey">./Classes/CCMNotificationService.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -607,6 +612,7 @@
 						<string key="chooseProjectsViewController">NSArrayController</string>
 						<string key="defaultsManager">CCMUserDefaultsManager</string>
 						<string key="notificationPrefsView">NSView</string>
+						<string key="notificationServiceComboBox">NSPopUpButtonCell</string>
 						<string key="paneHolderView">NSView</string>
 						<string key="preferencesWindow">NSPanel</string>
 						<string key="projectsView">NSView</string>
@@ -643,6 +649,10 @@
 						<object class="IBToOneOutletInfo" key="notificationPrefsView">
 							<string key="name">notificationPrefsView</string>
 							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="notificationServiceComboBox">
+							<string key="name">notificationServiceComboBox</string>
+							<string key="candidateClassName">NSPopUpButtonCell</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="paneHolderView">
 							<string key="name">paneHolderView</string>
@@ -821,6 +831,17 @@
 						<string key="NS.key.0">checkForUpdates:</string>
 						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">checkForUpdates:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">delegate</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">delegate</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">delegate</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</object>
