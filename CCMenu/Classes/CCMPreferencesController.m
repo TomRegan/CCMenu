@@ -4,6 +4,7 @@
 #import "CCMConnection.h"
 #import "NSArray+CCMAdditions.h"
 #import "NSString+CCMAdditions.h"
+#import "NSAppleScript+EDAdditions.h"
 #import <EDCommon/EDCommon.h>
 
 #define WINDOW_TITLE_HEIGHT 78
@@ -75,7 +76,7 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 {
 	NSString *serverUrl = [serverUrlComboBox stringValue];
 	serverUrl = [serverUrl stringByRemovingServerReportFileName];
-	if([serverTypeMatrix selectedTag] != CCMUnknownServer)
+	if((int)[serverTypeMatrix selectedTag] != CCMUnknownServer)
 		serverUrl = [serverUrl completeURLForServerType:(int)[serverTypeMatrix selectedTag]];
 	[serverUrlComboBox setStringValue:serverUrl];
 }
@@ -196,6 +197,10 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
     [[NSSound soundNamed:[sender title]] play];
 }
 
+- (IBAction)openNotificationPreferences:(id)sender
+{
+    [[NSAppleScript scriptWithName:@"handlers"] callHandler:@"open_notifications"];
+}
 
 - (void)preferencesChanged:(id)sender
 {

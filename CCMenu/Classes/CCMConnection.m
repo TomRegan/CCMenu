@@ -7,7 +7,7 @@
 
 - (id)initWithServerURL:(NSURL *)theServerUrl
 {
-	[super init];
+	self = [super init];
 	serverUrl = [theServerUrl retain];
 	return self;
 }

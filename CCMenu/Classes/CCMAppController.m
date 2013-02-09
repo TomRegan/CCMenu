@@ -1,12 +1,11 @@
 
 #import "CCMAppController.h"
-#import "CCMGrowlAdaptor.h"
+#import "CCMUserNotificationHandler.h"
 #import "CCMBuildNotificationFactory.h"
 #import "CCMBuildStatusTransformer.h"
 #import "CCMRelativeDateTransformer.h"
 #import "CCMTimeIntervalTransformer.h"
 #import "CCMBuildTimer.h"
-#import "CCMSoundPlayer.h"
 
 
 @implementation CCMAppController
@@ -36,14 +35,11 @@
     CCMBuildTimer *buildTimer = [[CCMBuildTimer alloc] init];
     [buildTimer start];
     
-    CCMSoundPlayer *soundPlayer = [[CCMSoundPlayer alloc] init];
-    [soundPlayer start];
-
-	[growlAdaptor start]; 
-
 	[serverMonitor setNotificationCenter:[NSNotificationCenter defaultCenter]];
 	[serverMonitor setNotificationFactory:[[[CCMBuildNotificationFactory alloc] init] autorelease]];
 	[serverMonitor start];
+
+    [userNotificationHandler start];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
@@ -53,8 +49,13 @@
 		[self setupRequestCache];
 		[self registerValueTransformers];
         [self startServices];
+
 		if([[serverMonitor projects] count] == 0)
 			[preferencesController showWindow:self];
+      
+        NSUserNotification *userNotification = [[aNotification userInfo] objectForKey:@"NSApplicationLaunchUserNotificationKey"];
+        if(userNotification != nil)
+            [userNotificationHandler userNotificationCenter:nil didActivateNotification:userNotification];
 	}
 	@catch(NSException *e)
 	{

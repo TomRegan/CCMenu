@@ -2,6 +2,16 @@ CruiseControl Status Menu Release Notes
 
 Changes listed by release.
 
+CCMenu 1.5
+
+* Now requires OS X 10.8 Mountain Lion
+* Uses Notification Center instead of Growl
+* The app does not run in a sandbox because the update
+  mechanism (Sparkle) does not yet work when run in a
+  sandboxed application. There should be a sandboxed 
+  version of CCMenu in the Mac App Store soon.
+
+
 CCMenu 1.4.1
 
 * Preparation for update to Mountain Lion version
@@ -12,19 +22,19 @@ CCMenu 1.4.1
 
 CCMenu 1.4
 
+* Now requires Mac OS X 10.6
 * Sound notifications played by CCMenu
 * Basic build timing display in menu and window
 * Supports ThoughtWorks Go integration servers 
 * Fixed timestamp parsing for Jenkins/Hudson
 * Fixed memory leak (#3426287)
-* Now requires Mac OS X 10.6
 
 
 CCMenu 1.3
 
+* Now requires Mac OS X 10.5
 * Handling parse errors (#2315056 and #3051368)
 * Menu items now sorted alphabetically (#3111566)
-* Now requires Mac OS X 10.5
 
 
 CCMenu 1.2

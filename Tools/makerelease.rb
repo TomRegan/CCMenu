@@ -8,7 +8,7 @@ include REXML
 class ReleaseManager
 
     def initialize
-        @proj = Project.new("CCMenu", "1.4.1", "https://ccmenu.svn.sourceforge.net/svnroot/ccmenu/branches/sparkleupdate")
+        @proj = Project.new("CCMenu", "1.5", "https://ccmenu.svn.sourceforge.net/svnroot/ccmenu/trunk")
         @env = Environment.new()
         @worker = CompositeWorker.new([Logger.new(), Executer.new()])
     end
@@ -78,6 +78,7 @@ class ReleaseManager
     <item>
         <title>#{@proj.name} #{@proj.version}</title>
         <pubDate>#{pubdate}</pubDate>
+      	<sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
         <sparkle:releaseNotesLink>http://ccmenu.svn.sourceforge.net/viewvc/*checkout*/ccmenu/trunk/RELEASENOTES.txt?revision=#{svnrev}</sparkle:releaseNotesLink> 
         <enclosure 
           sparkle:version="#{@proj.version}"
