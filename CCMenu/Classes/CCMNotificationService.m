@@ -76,34 +76,12 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
     return YES;
 }
 
-- (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
-{
-    NSUserNotification *notification = [[[NSUserNotification alloc] init] autorelease];
-    [notification setTitle:title];
-    [notification setSubtitle:subject];
-    [notification setInformativeText:description];
-    
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-}
-
-- (void)sendGrowlNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
-{
-    [GrowlApplicationBridge 	
-     notifyWithTitle:[NSString stringWithFormat:@"%@: %@", subject, title]
-     description:description
-     notificationName:title
-     iconData:nil
-     priority:0
-     isSticky:NO
-     clickContext:nil];
-}
-
 - (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
     if (self.isUserNotificationAvailable && self.selectedNotificationService == NotificationCenter) {
-        [self sendUserNotification:title withSubject:subject andDescription:description];
+        [notificationAdapter sendUserNotification:title withSubject:subject andDescription:description];
     } else  if (self.selectedNotificationService == Growl) {
-        [self sendGrowlNotification:title withSubject:subject andDescription:description];
+        [notificationAdapter sendGrowlNotification:title withSubject:subject andDescription:description];
     }
 }
 
@@ -120,7 +98,7 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 		if(![buildResult isEqualToString: notificationDescriptions[i].key]) {
             continue;
         }
-        [self sendUserNotification: notificationDescriptions[i].name
+        [self sendNotification: notificationDescriptions[i].name
               withSubject: projectName
               andDescription: notificationDescriptions[i].description];
 	}

@@ -18,6 +18,7 @@
 @interface CCMNotificationServiceTest : SenTestCase
 {
     id notificationServiceMock;
+    id notificationAdaptorMock;
 }
 
 @end

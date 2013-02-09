@@ -12,7 +12,7 @@
 -(void) setUp
 {
     notificationServiceMock = [OCMockObject partialMockForObject:[[[CCMNotificationService alloc] init] autorelease]];
-
+    notificationAdaptorMock = [OCMockObject partialMockForObject:[[[CCMNotificationAdaptor alloc] init] autorelease]];
 }
 
 -(void) tearDown
@@ -43,7 +43,7 @@
      selectedNotificationService];
 
     [[[notificationServiceMock expect] andForwardToRealObject] buildComplete:notification];
-    [[notificationServiceMock expect] sendUserNotification:@"Build successful"
+    [[notificationAdaptorMock expect] sendUserNotification:@"Build successful"
                                                withSubject:@"connectfour"
                                             andDescription:@"Yet another successful build!"];
 

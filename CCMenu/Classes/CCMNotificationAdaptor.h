@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Growl/Growl.h>
+
 
 @interface CCMNotificationAdaptor : NSObject
+
+- (void)sendGrowlNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
+- (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
 
 @end
