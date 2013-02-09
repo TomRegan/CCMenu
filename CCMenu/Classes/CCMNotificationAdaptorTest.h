@@ -10,6 +10,7 @@
 #import <OCMock/OCMock.h>
 
 #import "CCMNotificationService.h"
+#import "CCMNotificationAdaptor.h"
 #import "CCMBuildNotificationFactory.h"
 #import "CCMProjectStatus.h"
 #import "CCMProjectBuilder.h"

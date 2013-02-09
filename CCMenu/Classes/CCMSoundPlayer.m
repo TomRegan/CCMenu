@@ -16,8 +16,9 @@
     NSString *result = [[notification userInfo] objectForKey:@"buildResult"];
     NSString *defaultName = [NSString stringWithFormat:@"Sound %@", result]; // slightly naughty
     NSString *soundName = [[NSUserDefaults standardUserDefaults] stringForKey:defaultName];
-    if(soundName != nil)
+    if(soundName != nil) {
         [[NSSound soundNamed:soundName] play];
+    }
 }
 
 @end

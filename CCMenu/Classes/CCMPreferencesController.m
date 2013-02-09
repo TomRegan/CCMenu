@@ -233,18 +233,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
     [updater checkForUpdates:sender];
 }
 
-- (void)notificationAdapterChanged:(id)sender
-{
-    if ([sender isKindOfClass:[NSPopUpButton class]]) {
-        /* TODO:
-         * This seems a bit bogus: it's just mapping the menu index to a type
-         * in an enum, which is only slightly better than passing around ints.
-         */
-        selectedNotificationService = [sender indexOfSelectedItem];
-        [[NSNotificationCenter defaultCenter] postNotificationName:CCMNotificationServiceChanged object:self];
-    }
-}
-
 - (enum CCMNotificationServices)selectedNotificationService;
 {
     return selectedNotificationService;

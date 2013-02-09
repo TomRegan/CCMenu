@@ -11,8 +11,6 @@ struct {
 	NSString *description;
 } notificationDescriptions[NOTIFICATION_COUNT];
 
-NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
-
 @implementation CCMNotificationService
 
 @synthesize selectedNotificationService = _selectedNotificationService;
@@ -43,9 +41,7 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
         [[NSNotificationCenter defaultCenter]
          addObserver:self selector:@selector(buildComplete:)
          name:CCMBuildCompleteNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-         selector:@selector(notificationServiceChanged:)
-         name:CCMNotificationServiceChanged object:nil];
+        
         notificationAdapter = [[[CCMNotificationAdaptor alloc] init] autorelease];
     }
     return self;
@@ -54,6 +50,11 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager
 {
 	defaultsManager = manager;
+}
+
+- (void)setNotificationAdapter:(CCMNotificationAdaptor *)adapter
+{
+    notificationAdapter = adapter;
 }
 
 - (NSDictionary *)registrationDictionaryForGrowl
@@ -67,23 +68,12 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 
 - (void)start
 {
-    [self setSelectedNotificationService:[defaultsManager notificationService]];
-    self.isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
     [GrowlApplicationBridge setGrowlDelegate:(id)self];
-}
-
-- (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
-{
-    if (self.isUserNotificationAvailable && self.selectedNotificationService == NotificationCenter) {
-        [notificationAdapter sendUserNotification:title withSubject:subject andDescription:description];
-    } else  if (self.selectedNotificationService == Growl) {
-        [notificationAdapter sendGrowlNotification:title withSubject:subject andDescription:description];
-    }
 }
 
 - (void)buildComplete:(NSNotification *)notification
 {
-    if (self.selectedNotificationService == None) {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NotificationService"] == None) {
         return;
     }
 
@@ -94,16 +84,10 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 		if(![buildResult isEqualToString: notificationDescriptions[i].key]) {
             continue;
         }
-        [self sendNotification: notificationDescriptions[i].name
+        [notificationAdapter sendNotification: notificationDescriptions[i].name
               withSubject: projectName
               andDescription: notificationDescriptions[i].description];
 	}
-}
-
-- (void)notificationServiceChanged:(NSNotification *)notification
-{
-    [self setSelectedNotificationService:[notification.object selectedNotificationService]];
-    [self sendNotification:@"CCMenu" withSubject:@"Notification Preferences Changed" andDescription:@"Notifications will be shown here"];
 }
 
 @end

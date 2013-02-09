@@ -7,6 +7,7 @@
 //
 
 #import "CCMNotificationAdaptor.h"
+#import "CCMNotificationService.h"
 
 @implementation CCMNotificationAdaptor
 
@@ -30,6 +31,16 @@
      priority:0
      isSticky:NO
      clickContext:nil];
+}
+
+
+- (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
+{
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NotificationService"] == NotificationCenter) {
+        [self sendUserNotification:title withSubject:subject andDescription:description];
+    } else  if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NotificationService"] == Growl) {
+        [self sendGrowlNotification:title withSubject:subject andDescription:description];
+    }
 }
 
 @end

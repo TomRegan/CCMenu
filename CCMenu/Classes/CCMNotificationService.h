@@ -1,6 +1,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Growl/Growl.h>
+
 #import "CCMUserDefaultsManager.h"
 #import "CCMNotificationAdaptor.h"
 
@@ -23,7 +24,6 @@ enum CCMNotificationServices : NSInteger {
 
 - (void)start;
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager;
+- (void)setNotificationAdapter:(CCMNotificationAdaptor *)adapter;
 
 @end
-
-extern NSString *CCMNotificationServiceChanged;
