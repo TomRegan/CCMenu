@@ -13,8 +13,6 @@ struct {
 
 @implementation CCMNotificationService
 
-@synthesize selectedNotificationService = _selectedNotificationService;
-
 + (void)initialize
 {
     //TODO: review replacing this with dictionary

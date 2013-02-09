@@ -359,14 +359,10 @@
 			children = (
 				0306184E13DD554F003B065E /* CCMBuildTimer.h */,
 				0306184F13DD554F003B065E /* CCMBuildTimer.m */,
-				03C0827D134F97940039E3BD /* CCMNotificationService.h */,
-				03C0827E134F97940039E3BD /* CCMNotificationService.m */,
 				03DE259E146AB86C00521846 /* CCMSoundPlayer.h */,
 				03DE259F146AB86C00521846 /* CCMSoundPlayer.m */,
 				03C0828F134F97940039E3BD /* CCMStatusItemMenuController.h */,
 				03C08290134F97940039E3BD /* CCMStatusItemMenuController.m */,
-				E26CF2AB16C31DA00097A8ED /* CCMNotificationAdaptor.h */,
-				E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */,
 			);
 			name = "Status Observers";
 			sourceTree = "<group>";
@@ -553,6 +549,7 @@
 			children = (
 				031D05C1137157A100AE5A48 /* Domain Model */,
 				031D05C31371598500AE5A48 /* CI Server Interface */,
+				E266864A16C70FE000C8418A /* Notification Service */,
 				031D05C513715AFE00AE5A48 /* Status Observers */,
 				031D05C2137157D700AE5A48 /* Project Window */,
 				031D05C413715A4E00AE5A48 /* Preferences Window */,
@@ -575,6 +572,17 @@
 				03C082E0134F9D250039E3BD /* ProjectWindow.toolbar */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		E266864A16C70FE000C8418A /* Notification Service */ = {
+			isa = PBXGroup;
+			children = (
+				03C0827D134F97940039E3BD /* CCMNotificationService.h */,
+				03C0827E134F97940039E3BD /* CCMNotificationService.m */,
+				E26CF2AB16C31DA00097A8ED /* CCMNotificationAdaptor.h */,
+				E26CF2AC16C31DA00097A8ED /* CCMNotificationAdaptor.m */,
+			);
+			name = "Notification Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

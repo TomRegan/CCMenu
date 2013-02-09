@@ -31,9 +31,6 @@
 	IBOutlet NSArrayController		*chooseProjectsViewController;
 	
     IBOutlet NSSearchField          *searchField;
-    
-    enum CCMNotificationServices selectedNotificationService;
-
 }
 
 - (IBAction)showWindow:(id)sender;
@@ -60,8 +57,6 @@
 - (NSArray *)availableSounds;
 
 - (IBAction)searchFieldUpdated:(id)sender;
-
-- (enum CCMNotificationServices)selectedNotificationService;
 
 @end
 

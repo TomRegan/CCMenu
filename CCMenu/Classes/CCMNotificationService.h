@@ -19,7 +19,6 @@ enum CCMNotificationServices : NSInteger {
     CCMNotificationAdaptor *notificationAdapter;
 }
 
-@property (nonatomic) enum CCMNotificationServices  selectedNotificationService;
 @property (nonatomic) BOOL isUserNotificationAvailable;
 
 - (void)start;

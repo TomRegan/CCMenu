@@ -13,7 +13,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 @implementation CCMPreferencesController
 
-
 - (void)showWindow:(id)sender
 {
 	if(preferencesWindow == nil)
@@ -231,11 +230,6 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 - (IBAction)checkForUpdateNow:(id)sender
 {
     [updater checkForUpdates:sender];
-}
-
-- (enum CCMNotificationServices)selectedNotificationService;
-{
-    return selectedNotificationService;
 }
 
 @end
