@@ -19,6 +19,7 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
 
 + (void)initialize
 {
+    //TODO: review replacing this with dictionary
 	notificationDescriptions[0].key = CCMSuccessfulBuild;
 	notificationDescriptions[0].name = NSLocalizedString(@"Build successful", "Growl notification for successful build");
 	notificationDescriptions[0].description = NSLocalizedString(@"Yet another successful build!", "For Growl notificiation");
@@ -69,11 +70,6 @@ NSString *CCMNotificationServiceChanged = @"CCMNotificationServiceChanged";
     [self setSelectedNotificationService:[defaultsManager notificationService]];
     self.isUserNotificationAvailable = [NSUserNotificationCenter class] != nil;
     [GrowlApplicationBridge setGrowlDelegate:(id)self];
-}
-
-- (BOOL)userNotificationCenter:(NSNotificationCenter*)center shouldPresentNotification:(NSUserNotification *)notification
-{
-    return YES;
 }
 
 - (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
