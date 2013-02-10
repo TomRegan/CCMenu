@@ -19,8 +19,6 @@
 	
 	serverTypeMatrixMock = [OCMockObject mockForClass:[NSMatrix class]];
 	[controller setValue:serverTypeMatrixMock forKey:@"serverTypeMatrix"];
-
-    notificationCenterMock = [OCMockObject partialMockForObject:[NSNotificationCenter defaultCenter]];
 }
 
 - (void)tearDown
@@ -28,7 +26,6 @@
     [defaultsManagerMock verify];
     [serverUrlComboBoxMock verify];
     [serverTypeMatrixMock verify];
-    [notificationCenterMock verify];
 }
 
 - (void)testSelectsServerTypeWhenHistoryURLIsSelected

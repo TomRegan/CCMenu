@@ -11,6 +11,14 @@
 
 @implementation CCMNotificationAdaptor
 
+-(id)init
+{
+    if (self = [super init]) {
+        userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
+}
+
 - (void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
     NSUserNotification *notification = [[[NSUserNotification alloc] init] autorelease];
@@ -36,9 +44,9 @@
 
 - (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description
 {
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NotificationService"] == NotificationCenter) {
+    if ([userDefaults integerForKey:@"NotificationService"] == NotificationCenter) {
         [self sendUserNotification:title withSubject:subject andDescription:description];
-    } else  if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NotificationService"] == Growl) {
+    } else  if ([userDefaults integerForKey:@"NotificationService"] == Growl) {
         [self sendGrowlNotification:title withSubject:subject andDescription:description];
     }
 }

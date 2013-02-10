@@ -3,17 +3,19 @@
 
 @interface CCMNotificationService()
     -(void)sendUserNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
+    - (void)sendGrowlNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
     -(void)buildComplete:(NSNotification *)notification;
 @end
-
 
 @implementation CCMNotificationServiceTest
 
 -(void) setUp
 {
+    mockUserDefaults = [OCMockObject mockForClass:[NSUserDefaults class]];
     notificationServiceMock = [OCMockObject partialMockForObject:[[[CCMNotificationService alloc] init] autorelease]];
     notificationAdaptorMock = [OCMockObject partialMockForObject:[[[CCMNotificationAdaptor alloc] init] autorelease]];
-    [notificationServiceMock setNotificationAdapter:notificationAdaptorMock];
+    [notificationServiceMock setValue:notificationAdaptorMock forKey:@"notificationAdaptor"];
+    [notificationAdaptorMock setValue:mockUserDefaults forKey:@"userDefaults"];
 }
 
 -(void) tearDown
@@ -32,18 +34,41 @@
 }
 
 
+- (NSNotification *)successNotification
+{
+    return [self
+            notificationWithCurrentStatus:CCMSuccessStatus
+            andActivity:CCMSleepingActivity
+            andWithPreviousStatus:CCMSuccessStatus
+            andActivity:CCMBuildingActivity];
+}
+
 -(void)testSuccessfulBuildCompleteTriggersUserNotification
 {
-//TODO mock user defaults; fix send userNotification
-    NSNotification *notification = [self
-                                    notificationWithCurrentStatus:CCMSuccessStatus
-                                    andActivity:CCMSleepingActivity
-                                    andWithPreviousStatus:CCMSuccessStatus
-                                    andActivity:CCMBuildingActivity];
+    NSNotification *notification = [self successNotification];
+    [[[mockUserDefaults stub]
+       andReturnValue:OCMOCK_VALUE((NSInteger) {NotificationCenter})]
+       integerForKey:@"NotificationService"];
 
     [[[notificationServiceMock expect] andForwardToRealObject] buildComplete:notification];
-    [[[notificationAdaptorMock expect] andForwardToRealObject]
+    [[notificationAdaptorMock expect]
      sendUserNotification:@"Build successful"
+     withSubject:@"connectfour"
+     andDescription:@"Yet another successful build!"];
+
+    [notificationServiceMock buildComplete:notification];
+}
+
+-(void)testSuccessfulBuildCompleteTriggersGrowlNotification
+{
+    NSNotification *notification = [self successNotification];
+    [[[mockUserDefaults stub]
+      andReturnValue:OCMOCK_VALUE((NSInteger) {Growl})]
+     integerForKey:@"NotificationService"];
+
+    [[[notificationServiceMock expect] andForwardToRealObject] buildComplete:notification];
+    [[notificationAdaptorMock expect]
+     sendGrowlNotification:@"Build successful"
      withSubject:@"connectfour"
      andDescription:@"Yet another successful build!"];
 

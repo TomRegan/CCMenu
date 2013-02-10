@@ -11,6 +11,9 @@
 
 
 @interface CCMNotificationAdaptor : NSObject
+{
+    NSUserDefaults *userDefaults;
+}
 
 - (void)sendNotification:(NSString*)title withSubject:(NSString*)subject andDescription:(NSString*) description;
 

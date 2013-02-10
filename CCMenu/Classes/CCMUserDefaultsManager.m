@@ -26,11 +26,6 @@ NSString *CCMSelectedNotificationProvider = @"CCMSelectedNotificationProvider";
     return interval;
 }
 
-- (NSInteger)notificationService
-{
-    return [userDefaults integerForKey:CCMSelectedNotificationProvider];
-}
-
 - (NSDictionary *)createEntryWithProject:(NSString *)projectName andURL:(NSString *)serverUrl
 {
 	return [NSDictionary dictionaryWithObjectsAndKeys: projectName, CCMDefaultsProjectEntryNameKey, 

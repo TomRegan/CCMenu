@@ -13,6 +13,8 @@ struct {
 
 @implementation CCMNotificationService
 
+@synthesize notificationAdaptor = _notificationAdaptor;
+
 + (void)initialize
 {
     //TODO: review replacing this with dictionary
@@ -39,8 +41,8 @@ struct {
         [[NSNotificationCenter defaultCenter]
          addObserver:self selector:@selector(buildComplete:)
          name:CCMBuildCompleteNotification object:nil];
-        
-        notificationAdapter = [[[CCMNotificationAdaptor alloc] init] autorelease];
+
+        self.notificationAdaptor = [[[CCMNotificationAdaptor alloc] init] autorelease];
     }
     return self;
 }
@@ -48,11 +50,6 @@ struct {
 - (void)setDefaultsManager:(CCMUserDefaultsManager *)manager
 {
 	defaultsManager = manager;
-}
-
-- (void)setNotificationAdapter:(CCMNotificationAdaptor *)adapter
-{
-    notificationAdapter = adapter;
 }
 
 - (NSDictionary *)registrationDictionaryForGrowl
@@ -82,7 +79,7 @@ struct {
 		if(![buildResult isEqualToString: notificationDescriptions[i].key]) {
             continue;
         }
-        [notificationAdapter sendNotification: notificationDescriptions[i].name
+        [[self notificationAdaptor] sendNotification: notificationDescriptions[i].name
               withSubject: projectName
               andDescription: notificationDescriptions[i].description];
 	}

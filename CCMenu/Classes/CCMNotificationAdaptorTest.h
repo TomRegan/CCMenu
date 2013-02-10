@@ -20,6 +20,7 @@
 {
     id notificationServiceMock;
     id notificationAdaptorMock;
+    id mockUserDefaults;
 }
 
 @end
