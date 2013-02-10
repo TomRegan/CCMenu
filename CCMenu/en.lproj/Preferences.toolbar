@@ -22,20 +22,20 @@
     itemInfoByIdentifier = {
         Projects = {
             action = "switchPreferencesPane:"; 
-            imageName = "174-imac";
+            imageName = "PrefProject";
             label = "Projects"; 
         }; 
 
         Notifications = {
             action = "switchPreferencesPane:"; 
-            imageName = "124-bullhorn";
+            imageName = "pref-notifications";
             label = "Notifications"; 
         }; 
 
         Advanced = {
             action = "switchPreferencesPane:"; 
-            imageName = "SECompileScriptImage";
-            label = "Advanced"; 
+            imageName = "PrefAdvanced";
+            label = "Advanced";
         }; 
     };
 	

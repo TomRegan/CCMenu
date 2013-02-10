@@ -78,5 +78,3 @@ Any, all, or maybe none of the following
 
 CCMenu is being actively developed by Thoughtworks. You can [check out the
 latest here](http://ccmenu.sourceforge.net/).
-
-This version uses icons from [Glyphish](http://www.glyphish.com/).
