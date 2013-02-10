@@ -22,19 +22,19 @@
     itemInfoByIdentifier = {
         Projects = {
             action = "switchPreferencesPane:"; 
-            imageName = "pref-projects"; 
+            imageName = "174-imac";
             label = "Projects"; 
         }; 
 
         Notifications = {
             action = "switchPreferencesPane:"; 
-            imageName = "pref-notifications"; 
+            imageName = "124-bullhorn";
             label = "Notifications"; 
         }; 
 
         Advanced = {
             action = "switchPreferencesPane:"; 
-            imageName = "pref-advanced"; 
+            imageName = "20-gear2";
             label = "Advanced"; 
         }; 
     };
