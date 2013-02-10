@@ -34,7 +34,7 @@
 
         Advanced = {
             action = "switchPreferencesPane:"; 
-            imageName = "20-gear2";
+            imageName = "SECompileScriptImage";
             label = "Advanced"; 
         }; 
     };
